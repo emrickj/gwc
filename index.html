@@ -1,0 +1,589 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="https://www.gem-editor.com/gwc/">
+<link href="/images/gem.ico" rel="icon" type="image/x-icon" />
+<link rel="Stylesheet" type="text/css" href="style/jHtmlArea.css" />
+<link rel="stylesheet" type="text/css" href="style/jHtmlArea.ColorPickerMenu.css" />
+<style type="text/css">
+        /* body { background: #ccc;} */
+        div.jHtmlArea .ToolBar ul li a.justify_button 
+        {
+            background: url(images/text_align_justify.png) no-repeat;
+            background-position: -1px -1px;
+        }
+        div.jHtmlArea .ToolBar ul li a.remove_formatting_button 
+        {
+            background: url(images/style_delete.png) no-repeat;
+            background-position: 0 0;
+        }
+        div.jHtmlArea .ToolBar ul li a.icon_button 
+        {
+            background: url(images/application_view_icons.png) no-repeat;
+            background-position: 0 0;
+        }
+        div.jHtmlArea .ToolBar ul li a.upload_button 
+        {
+            background: url(images/drive-upload.png) no-repeat;
+            background-position: 0 0;
+        }
+        div.jHtmlArea .ToolBar ul li a.undo_button 
+        {
+            background: url(images/ui-icons_222222_256x240.png) no-repeat;
+            background-position: -128px -64px;
+        }
+        div.jHtmlArea .ToolBar ul li a.redo_button 
+        {
+            background: url(images/ui-icons_222222_256x240.png) no-repeat;
+            background-position: -160px -64px;
+        }
+        div.jHtmlArea .ToolBar ul li a.css_button 
+        {
+            background: url(images/css.png) no-repeat;
+            background-position: 0 0;
+        }
+        div.jHtmlArea {border: solid 1px #ccc; }
+    </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="website_editor.css">
+<link rel="stylesheet" type="text/css" href="style/style.css">
+
+	<title>GEM Website Editor</title>
+</head>
+<body id="demo" onload="resizeHtmlEditor()" onresize="resizeHtmlEditor()" contextmenu="websitemenu">
+<datalist id="pnames">
+  <option id="option1" value="Home">
+  <option id="option2" value="Announcements">
+  <option id="option3" value="About Us">
+  <option id="option4" value="Services">
+  <option id="option5" value="FAQ">
+  <option id="option6" value="Blog">
+  <option id="option7" value="Location">
+  <option id="option8" value="Comments">
+  <option id="option9" value="Contact Us">
+</datalist>
+<!-- Context Menu, Firefox Only -->
+<div contextmenu="mymenu">
+
+<menu type="context" id="websitemenu">
+  <menuitem label="Open Website" id="opnmi"></menuitem>
+  <menuitem label="Submit Website" id="submi"></menuitem>
+  <menuitem label="Website Options" id="optmi"></menuitem>
+</menu>
+
+</div>
+<br>
+<div class="container">
+    <div class="panel panel-default" accesskey="t">
+       <div class="panel-body">
+          Welcome to the GEM website creator.  Here you can easily create a basic website for free.  You
+          can create up to 6 pages.  You can include an image for each page.  The image will be
+          displayed at the top of each page.  After you are done, click continue to preview your website.
+       </div>
+    </div>
+    <br>
+    <form class="form-horizontal" id="webdata" action="website_submit.php" method="post"
+          autocomplete="off" enctype="multipart/form-data" target="_blank">
+         <div class="panel panel-default">
+            <div class="panel-heading" id="ptext1"><i class="fa fa-2x">①</i></div>
+            <div class="panel-body">
+                  <div class="col-lg-4 fa has-feedback">
+                     <label for="pname" class="col-lg-12"><span class="glyphicon glyphicon-pencil"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pname1" placeholder="Enter Page Name" 
+                         name="pname1" list="pnames" oninput="em_txt(this)" accesskey="1">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-6 fa has-feedback">
+                     <label for="pimage" class="col-lg-12"><span class="glyphicon glyphicon-picture"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pimage1" name="pimage1" readonly style="display: none;">
+                     </div>   
+                     <div class="col-lg-12">
+                        <input type="file" class="form-control" id="files" name="file1">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-12">
+                     <label for="content" class="col-lg-12"><span class="glyphicon glyphicon-edit"></label>
+                     <div class="col-lg-12">
+                        <textarea class="form-control" spellcheck="false" rows="10" id="content1" name="content1"></textarea>
+                     </div>   
+                  </div>   
+            </div>
+         </div>
+         <div class="panel panel-primary">
+            <div class="panel-heading" id="ptext2"><i class="fa fa-2x">②</i></div>
+            <div class="panel-body">
+                  <div class="col-lg-4 fa has-feedback">
+                     <label for="pname" class="col-lg-12"><span class="glyphicon glyphicon-pencil"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pname2" placeholder="Enter Page Name" 
+                         name="pname2" list="pnames" oninput="em_txt(this)" accesskey="2">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-6 fa has-feedback">
+                     <label for="pimage" class="col-lg-12"><span class="glyphicon glyphicon-picture"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pimage2" name="pimage2" readonly style="display: none;">
+                     </div>
+                     <div class="col-lg-12">
+                        <input type="file" class="form-control" id="files" name="file2">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-12">
+                     <label for="content" class="col-lg-12"><span class="glyphicon glyphicon-edit"></label>
+                     <div class="col-lg-12">
+                        <textarea class="form-control" spellcheck="false" rows="10" id="content2" name="content2"></textarea>
+                     </div>   
+                  </div>
+            </div>
+         </div>
+         <div class="panel panel-success">
+            <div class="panel-heading" id="ptext3"><i class="fa fa-2x">③</i></div>
+            <div class="panel-body">
+                  <div class="col-lg-4 fa has-feedback">
+                     <label for="pname" class="col-lg-12"><span class="glyphicon glyphicon-pencil"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pname3" placeholder="Enter Page Name" 
+                         name="pname3" list="pnames" oninput="em_txt(this)" accesskey="3">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-6 fa has-feedback">
+                     <label for="pimage" class="col-lg-12"><span class="glyphicon glyphicon-picture"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pimage3" name="pimage3" readonly style="display: none;">
+                     </div>
+                     <div class="col-lg-12">
+                        <input type="file" class="form-control" id="files" name="file3">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>   
+                  </div>
+                  <div class="col-lg-12">
+                     <label for="content" class="col-lg-12"><span class="glyphicon glyphicon-edit"></label>
+                     <div class="col-lg-12">
+                        <textarea class="form-control" spellcheck="false" rows="10" id="content3" name="content3"></textarea>
+                     </div>   
+                  </div>
+            </div>
+         </div>
+         <div class="panel panel-info">
+            <div class="panel-heading" id="ptext4"><i class="fa fa-2x">④</i></div>
+            <div class="panel-body">
+                  <div class="col-lg-4 fa has-feedback">
+                     <label for="pname" class="col-lg-12"><span class="glyphicon glyphicon-pencil"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pname4" placeholder="Enter Page Name" 
+                         name="pname4" list="pnames" oninput="em_txt(this)" accesskey="4">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-6 fa has-feedback">
+                     <label for="pimage" class="col-lg-12"><span class="glyphicon glyphicon-picture"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pimage4" name="pimage4" readonly style="display: none;">
+                     </div>
+                     <div class="col-lg-12">   
+                        <input type="file" class="form-control" id="files" name="file4">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-12">
+                     <label for="content" class="col-lg-12"><span class="glyphicon glyphicon-edit"></label>
+                     <div class="col-lg-12">
+                        <textarea class="form-control" spellcheck="false" rows="10" id="content4" name="content4"></textarea>
+                     </div>   
+                  </div>
+            </div>
+         </div>
+         <div class="panel panel-warning">
+            <div class="panel-heading" id="ptext5"><i class="fa fa-2x">⑤</i></div>
+            <div class="panel-body">
+                  <div class="col-lg-4 fa has-feedback">
+                     <label for="pname" class="col-lg-12"><span class="glyphicon glyphicon-pencil"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pname5" placeholder="Enter Page Name" 
+                         name="pname5" list="pnames" oninput="em_txt(this)" accesskey="5">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-6 fa has-feedback">
+                     <label for="pimage" class="col-lg-12"><span class="glyphicon glyphicon-picture"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pimage5" name="pimage5" readonly style="display: none;">
+                     </div>
+                     <div class="col-lg-12">   
+                        <input type="file" class="form-control" id="files" name="file5">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-12">
+                     <label for="content" class="col-lg-12"><span class="glyphicon glyphicon-edit"></label>
+                     <div class="col-lg-12">
+                        <textarea class="form-control" spellcheck="false" rows="10" id="content5" name="content5"></textarea>
+                     </div>   
+                  </div>
+            </div>
+         </div>
+         <div class="panel panel-danger">
+            <div class="panel-heading" id="ptext6"><i class="fa fa-2x">⑥</i></div>
+            <div class="panel-body">
+                  <div class="col-lg-4 fa has-feedback">
+                     <label for="pname" class="col-lg-12"><span class="glyphicon glyphicon-pencil"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pname6" placeholder="Enter Page Name" 
+                         name="pname6" list="pnames" oninput="em_txt(this)" accesskey="6">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-6 fa has-feedback">
+                     <label for="pimage" class="col-lg-12"><span class="glyphicon glyphicon-picture"></span></label>
+                     <div class="col-lg-12">
+                        <input type="text" class="form-control" id="pimage6" name="pimage6" readonly style="display: none;">
+                     </div>
+                     <div class="col-lg-12">
+                        <input type="file" class="form-control" id="files" name="file6">
+                        <span class="form-control-feedback"></span>
+                     </div>
+                     <br>
+                  </div>
+                  <div class="col-lg-12">
+                     <label for="content" class="col-lg-12"><span class="glyphicon glyphicon-edit"></label>
+                     <div class="col-lg-12">
+                        <textarea class="form-control" spellcheck="false" rows="10" id="content6" name="content6"></textarea>
+                     </div>   
+                  </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-sm-4">
+               <button type="button" class="btn btn-primary btn-block btn-lg" id="subbtn" accesskey="s">
+               <span class="glyphicon glyphicon-ok"></span>
+                Continue</button>
+               <br>
+            </div>
+            <div class="col-sm-4">
+               <button type="button" class="btn btn-danger btn-block btn-lg" id="rstbtn">
+               <span class="glyphicon glyphicon-remove"></span>
+                Cancel</button>
+               <br>
+            </div>
+            <div class="col-sm-4">
+               <button type="button" class="btn btn-info btn-block btn-lg"
+                id="optbtn" accesskey="o"><span class="glyphicon glyphicon-modal-window"></span>
+                Options</button>
+               <br>
+            </div>
+         </div>
+        <!-- Options Modal -->
+        <div class="modal fade" id="optModal">
+           <div class="modal-dialog">
+              <div class="modal-content">
+                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Options</h4>
+                 </div>
+                 <div class="modal-body">
+                    <div class="form-group">
+                       <label class="control-label col-sm-2" for="title">Title:</label>
+                       <div class="col-sm-10">
+                          <input type="text" class="form-control" spellcheck="false" id="title" name="title">
+                       </div>
+                    </div>
+                    <br>
+                    <div class="checkbox">
+                       <label><input type="checkbox" value="1" id="ctform" name="ctform">
+                        Include contact form on contact page.</label>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group">
+                       <label class="control-label col-sm-2" for="theme">Theme:</label>
+                       <div class="col-sm-10">
+                          <select class="form-control" id="theme" name="theme">
+                             <option id="theme1" value="1">Vertical Button</option>
+                             <option id="theme1af" value="1af">Vertical Button, fixed</option>
+                             <option id="theme1at" value="1at">Vertical Button, affix</option>
+							 <option id="theme1bs4" value="1bs4">Vertical Button (Bootstrap 4)</option>
+							 <option id="theme1b4f" value="1b4f">Vertical Button, fixed (Bootstrap 4)</option>
+							 <option id="theme1b4a" value="1b4a">Vertical Button 2 (Bootstrap 4)</option>
+                             <option id="theme2" value="2">Navigation Bar</option>
+                             <option id="theme2fi" value="2fi">Navigation Bar, fixed top</option>
+                             <option id="theme2in" value="2in">Navigation Bar, inverted</option>
+                             <option id="theme2if" value="2if">Navigation Bar, inverted, fixed top</option>
+                             <option id="theme2ia" value="2ia">Navigation Bar, inverted, affix</option>
+							 <option id="theme2prm" value="2prm">Navigation Bar, blue (Bootstrap 4)</option>
+							 <option id="theme2suc" value="2suc">Navigation Bar, green (Bootstrap 4)</option>
+							 <option id="theme2inf" value="2inf">Navigation Bar, cyan (Bootstrap 4)</option>
+							 <option id="theme2wrn" value="2wrn">Navigation Bar, yellow (Bootstrap 4)</option>
+							 <option id="theme2dng" value="2dng">Navigation Bar, red (Bootstrap 4)</option>
+							 <option id="theme2sec" value="2sec">Navigation Bar, gray (Bootstrap 4)</option>
+							 <option id="theme2drk" value="2drk">Navigation Bar, dark (Bootstrap 4)</option>
+							 <option id="theme2lit" value="2lit">Navigation Bar, light (Bootstrap 4)</option>
+							 <option id="theme2fprm" value="2fprm">Navigation Bar, fixed top, blue (Bootstrap 4)</option>
+							 <option id="theme2fsuc" value="2fsuc">Navigation Bar, fixed top, green (Bootstrap 4)</option>
+							 <option id="theme2finf" value="2finf">Navigation Bar, fixed top, cyan (Bootstrap 4)</option>
+							 <option id="theme2fwrn" value="2fwrn">Navigation Bar, fixed top, yellow (Bootstrap 4)</option>
+							 <option id="theme2fdng" value="2fdng">Navigation Bar, fixed top, red (Bootstrap 4)</option>
+							 <option id="theme2fsec" value="2fsec">Navigation Bar, fixed top, gray (Bootstrap 4)</option>
+							 <option id="theme2fdrk" value="2fdrk">Navigation Bar, fixed top, dark (Bootstrap 4)</option>
+							 <option id="theme2flit" value="2flit">Navigation Bar, fixed top, light (Bootstrap 4)</option>
+							 <option id="theme2fcd" value="2fcd">Navigation Bar, fixed top, card style (Bootstrap 4)</option>
+							 <option id="theme2cda" value="2cda">Navigation Bar, card style 2 (Bootstrap 4)</option>
+							 <option id="theme2cdsu" value="2cdsu">Navigation Bar, slide up (Bootstrap 4)</option>
+                             <option id="theme3" value="3">Scrollspy</option>
+                             <option id="theme3a" value="3a">Scrollspy & Affix</option>
+                             <option id="theme3b4" value="3b4">Scrollspy (Bootstrap 4)</option>
+							 <option id="theme3sn" value="3sn">Scrollspy with Sticky Navbar (Bootstrap 4)</option>
+                             <option id="theme4" value="4">Scrollspy Vertical Menu</option>
+							 <option id="theme4a" value="4a">Scrollspy Vertical Menu 2</option>
+							 <option id="theme4b" value="4b">Scrollspy Vertical Menu 3</option>
+							 <option id="theme4b4" value="4b4">Scrollspy Vertical Menu (Bootstrap 4)</option>
+							 <option id="theme5" value="5">Horizontal Menu</option>
+                             <option id="theme991" value="991">99Lime Horizontal Menu</option>
+                             <option id="theme992" value="992">99Lime Vertical Menu</option>
+                             <option id="themef1" value="f1">Foundation Top Bar Navigation</option>
+                             <option id="themegr1" value="gr1">GroundworkCSS Horizontal Menu</option>
+                             <option id="themegr1ye" value="gr1ye">GroundworkCSS Horizontal Menu, yellow</option>
+                             <option id="themegr1or" value="gr1or">GroundworkCSS Horizontal Menu, orange</option>
+                             <option id="themegr1rd" value="gr1rd">GroundworkCSS Horizontal Menu, red</option>
+                             <option id="themegr1pk" value="gr1pk">GroundworkCSS Horizontal Menu, pink</option>
+                             <option id="themegr1pu" value="gr1pu">GroundworkCSS Horizontal Menu, purple</option>
+                             <option id="themegr1as" value="gr1as">GroundworkCSS Horizontal Menu, asphalt</option>
+                             <option id="themegr1blu" value="gr1blu">GroundworkCSS Horizontal Menu, blue</option>
+                             <option id="themegr1tu" value="gr1tu">GroundworkCSS Horizontal Menu, turquoise</option>
+                             <option id="themegr1grn" value="gr1grn">GroundworkCSS Horizontal Menu, green</option>
+                             <option id="themegr1ch" value="gr1ch">GroundworkCSS Horizontal Menu, charcoal</option>
+                             <option id="themegu1" value="gu1">Gumby Navigation Bar</option>
+                             <option id="themegu2" value="gu2">Gumby Navigation Bar 2</option>
+                             <option id="themei1wh" value="i1wh">Ink Horizontal Menu, white</option>
+                             <option id="themei1gr" value="i1gr">Ink Horizontal Menu, grey</option>
+                             <option id="themei1" value="i1">Ink Horizontal Menu, black</option>
+                             <option id="themei1blu" value="i1blu">Ink Horizontal Menu, blue</option>
+                             <option id="themei1grn" value="i1grn">Ink Horizontal Menu, green</option>
+                             <option id="themei1or" value="i1or">Ink Horizontal Menu, orange</option>
+                             <option id="themei1rd" value="i1rd">Ink Horizontal Menu, red</option>
+                             <option id="themema1" value="ma1">Material Design Theme</option>
+                             <option id="themema1rd" value="ma1rd">Material Design Theme, red</option>
+                             <option id="themema1pk" value="ma1pk">Material Design Theme, pink</option>
+                             <option id="themema1te" value="ma1te">Material Design Theme, teal</option>
+                             <option id="themema1grn" value="ma1grn">Material Design Theme, green</option>
+                             <option id="themema1or" value="ma1or">Material Design Theme, orange</option>
+                             <option id="themema1do" value="ma1do">Material Design Theme, deep orange</option>
+                             <option id="themema1gr" value="ma1gr">Material Design Theme, grey</option>
+                             <option id="themema2" value="ma2">Material Design Scrollspy</option>
+                             <option id="themem2da" value="m2da">Metro UI CSS Appbar, fixed, darcula</option>
+                             <option id="themem2pk" value="m2pk">Metro UI CSS Appbar, fixed, pink</option>
+                             <option id="themem2" value="m2">Metro UI CSS Appbar, fixed, navy</option>
+                             <option id="themem2rd" value="m2rd">Metro UI CSS Appbar, fixed, red</option>
+                             <option id="themem2grn" value="m2grn">Metro UI CSS Appbar, fixed, green</option>
+                             <option id="themem2or" value="m2or">Metro UI CSS Appbar, fixed, orange</option>
+                             <option id="themem1f" value="m1f">Metro UI CSS F-MENU (flex menu)</option>
+                             <option id="themem1" value="m1">Metro UI CSS H-MENU</option>
+                             <option id="themes3" value="s3">Skeleton Theme</option>
+                             <option id="themes1" value="s1">Skeleton Navigation Bar</option>
+                             <option id="themes2" value="s2">Skeleton Vertical Navigation Bar</option>
+                             <option id="themet1" value="t1">Tuktuk White Back Theme</option>
+                             <option id="themet1d" value="t1d">Tuktuk Dark Back Theme</option>
+                             <option id="themet1l" value="t1l">Tuktuk Light Back Theme</option>
+                             <option id="themew1" value="w1">W3.CSS Sidebar</option>
+                             <option id="themew1rd" value="w1rd">W3.CSS Sidebar, red</option>
+                             <option id="themew1pk" value="w1pk">W3.CSS Sidebar, pink</option>
+                             <option id="themew1pu" value="w1pu">W3.CSS Sidebar, purple</option>
+                             <option id="themew1dp" value="w1dp">W3.CSS Sidebar, deep purple</option>
+                             <option id="themew1in" value="w1in">W3.CSS Sidebar, indigo</option>
+                             <option id="themew1blu" value="w1blu">W3.CSS Sidebar, blue</option>
+                             <option id="themew1lb" value="w1lb">W3.CSS Sidebar, light blue</option>
+                             <option id="themew1cy" value="w1cy">W3.CSS Sidebar, cyan</option>
+                             <option id="themew1te" value="w1te">W3.CSS Sidebar, teal</option>
+                             <option id="themew1grn" value="w1grn">W3.CSS Sidebar, green</option>
+                             <option id="themew1lg" value="w1lg">W3.CSS Sidebar, light green</option>
+                             <option id="themew1li" value="w1li">W3.CSS Sidebar, lime</option>
+                             <option id="themew1kh" value="w1kh">W3.CSS Sidebar, khaki</option>
+                             <option id="themew1ye" value="w1ye">W3.CSS Sidebar, yellow</option>
+                             <option id="themew1am" value="w1am">W3.CSS Sidebar, amber</option>
+                             <option id="themew1or" value="w1or">W3.CSS Sidebar, orange</option>
+                             <option id="themew1do" value="w1do">W3.CSS Sidebar, deep orange</option>
+                             <option id="themew1bg" value="w1bg">W3.CSS Sidebar, blue grey</option>
+                             <option id="themew1br" value="w1br">W3.CSS Sidebar, brown</option>
+                             <option id="themew1gr" value="w1gr">W3.CSS Sidebar, grey</option>
+                             <option id="themew1dg" value="w1dg">W3.CSS Sidebar, dark grey</option>
+                             <option id="themew1bl" value="w1bl">W3.CSS Sidebar, black</option>
+                             <option id="themew1w3" value="w1w3">W3.CSS Sidebar, w3schools</option>
+                             <option id="themew6" value="w6">W3.CSS Architect</option>
+                             <option id="themew5" value="w5">W3.CSS Dark Portfolio</option>
+                             <option id="themew2" value="w2">W3.CSS Interior Designer</option>
+                             <option id="themew3" value="w3">W3.CSS Marketing</option>
+                             <option id="themew7" value="w7">W3.CSS Parallax</option>
+                             <option id="themew4" value="w4">W3.CSS Startup</option>
+                             <option id="themey1" value="y1">YAML Horizontal Navigation</option>
+                          </select>
+                       </div>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-default" id="cssbtn" accesskey="c">Edit CSS</button>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-default" id="opnbtn" accesskey="w">Open Website</button>
+                 </div>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="clsbtn1">OK</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <!-- CSS Modal -->
+        <div class="modal fade" id="cssModal">
+           <div class="modal-dialog">
+              <div class="modal-content">
+                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">CSS</h4>
+                 </div>
+                 <div class="modal-body">
+                       <label for="comment">Enter or Modify CSS for Website:</label>
+                       <textarea class="form-control" rows="8" spellcheck="false" id="css" name="css" autofocus></textarea>
+                 </div>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="opncss">Open</button>
+                    <button type="button" class="btn btn-default" id="newcss">New</button>
+                    <button type="button" class="btn btn-default" onclick="css_update_ta()" data-dismiss="modal">OK</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <!-- Open Website Modal -->
+        <div class="modal fade" id="openModal">
+           <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Open Website</h4>
+                 </div>
+                 <div class="modal-body">
+                       <label for="comment">Please select website file:</label>
+                       <input type="file" class="form-control" id="wsfile" name="files[]" />
+                 </div>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="clsbtn2">Close</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <!-- Open CSS Modal -->
+        <div class="modal fade" id="opencssModal">
+           <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Open CSS</h4>
+                 </div>
+                 <div class="modal-body">
+                       <label for="comment">Please select CSS file:</label>
+                       <input type="file" class="form-control" id="cssfile" name="files[]" />
+                 </div>
+                 <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="clsbtn3">Close</button>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </form>
+     <br>
+     <div class="panel panel-default" accesskey="b">
+        <div class="panel-body">
+           If you have any questions or comments, please feel free to contact us.  Our contact 
+           information is on our website, which is <a href="https://www.gem-editor.com">www.gem-editor.com
+           </a>.
+        </div>
+     </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Alert!</h4>
+        </div>
+        <div class="modal-body">
+          <p>You have already entered that page name.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Upload Modal -->
+  <div class="modal fade" id="ulModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Image Upload</h4>
+        </div>
+        <div class="modal-body">
+           <form id="uploadimage" action="" method="post" enctype="multipart/form-data">
+              <div id="image_preview"><img id="previewing" src="images/noimage.png" /></div>
+              <hr id="line">
+              <div id="selectImage">
+                 <label>Select Your Image</label><br/>
+                 <input type="file" name="file" id="file" required />
+                 <input type="submit" value="Upload" class="submit" />
+              </div>
+           </form>
+           <h4 id='loading' >Loading..</h4>
+           <div id="message"></div>       
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Icons Modal -->
+    <div class="modal fade" id="iconsModal">
+     <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+           <div class="modal-header">            
+              <h4 class="modal-title">Insert Icons</h4>
+           </div>
+           <div class="modal-body fa" id="iconsDisp" style="overflow-y: auto; height: 250px;
+            line-height: 1.4;">
+           </div>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-default" id="iconsbtn">Icons</button>
+              <button type="button" class="btn btn-default" id="emojisbtn">Emojis</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal" id="iconscls">Close</button>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/jHtmlArea-0.8.js"></script>
+<script type="text/javascript" src="scripts/jHtmlArea.ColorPickerMenu-0.8.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="scripts/website_editor.js"></script>
+<script src="scripts/script.js"></script>
+</body>
+</html>
