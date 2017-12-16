@@ -5,8 +5,7 @@ header_msg: >
    displayed at the top of each page.  After you are done, click continue to preview your website.
 footer_msg: >
    If you have any questions or comments, please feel free to contact us.  Our contact 
-   information is on our website, which is <a href='https://www.gem-editor.com'>www.gem-editor.com
-   </a>.
+   information is on our website, which is <a href='https://www.gem-editor.com'>www.gem-editor.com</a>.
 ---
 <!DOCTYPE HTML>
 <html lang="en">
@@ -88,12 +87,14 @@ footer_msg: >
 </div>
 <br>
 <div class="container">
+    {% if page.header_msg != nil %} 
     <div class="panel panel-default" accesskey="t">
        <div class="panel-body">
 	   {{ page.header_msg }}
        </div>
     </div>
     <br>
+    <% endif %>
     <form class="form-horizontal" id="webdata" action="website_submit.php" method="post"
           autocomplete="off" enctype="multipart/form-data" target="_blank">
          <div class="panel panel-default">
