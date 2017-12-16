@@ -6,6 +6,16 @@ header_msg: >
 footer_msg: >
    If you have any questions or comments, please feel free to contact us.  Our contact 
    information is on our website, which is <a href='https://www.gem-editor.com'>www.gem-editor.com</a>.
+page_names:
+  - Home
+  - Announcements
+  - About Us
+  - Services
+  - FAQ
+  - Blog
+  - Location
+  - Comments
+  - Contact Us
 ---
 <!DOCTYPE HTML>
 <html lang="en">
@@ -65,15 +75,9 @@ footer_msg: >
 </head>
 <body id="demo" onload="resizeHtmlEditor()" onresize="resizeHtmlEditor()" contextmenu="websitemenu">
 <datalist id="pnames">
-  <option id="option1" value="Home">
-  <option id="option2" value="Announcements">
-  <option id="option3" value="About Us">
-  <option id="option4" value="Services">
-  <option id="option5" value="FAQ">
-  <option id="option6" value="Blog">
-  <option id="option7" value="Location">
-  <option id="option8" value="Comments">
-  <option id="option9" value="Contact Us">
+  {% for item in page.page_names %}
+  <option id="option{% increment my_counter %}" value="{{ item }}">
+  <% endfor %>	  
 </datalist>
 <!-- Context Menu, Firefox Only -->
 <div contextmenu="mymenu">
