@@ -76,7 +76,7 @@ page_names:
 <body id="demo" onload="resizeHtmlEditor()" onresize="resizeHtmlEditor()" contextmenu="websitemenu">
 <datalist id="pnames">
   {% assign my_counter = 0 %}
-  {% for item in page.page_names %}
+  {% for item in page.page_names %
      {% assign my_counter = my_counter | plus: 1 %}
      <option id="option{{ my_counter }}" value="{{ item }}">
   {% endfor %}	  
