@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE HTML>
 <html lang="en">
 <html>
@@ -78,6 +80,7 @@
 </div>
 <br>
 <div class="container">
+    {% if page.header_msg != nil %}
     <div class="panel panel-default" accesskey="t">
        <div class="panel-body">
           Welcome to the GEM website creator.  Here you can easily create a basic website for free.  You
@@ -86,6 +89,7 @@
        </div>
     </div>
     <br>
+    {% endif %} 
     <form class="form-horizontal" id="webdata" action="website_submit.php" method="post"
           autocomplete="off" enctype="multipart/form-data" target="_blank">
          <div class="panel panel-default">
@@ -508,6 +512,7 @@
            </div>
         </div>
      </form>
+     {% if page.footer_msg != nil %}
      <br>
      <div class="panel panel-default" accesskey="b">
         <div class="panel-body">
@@ -516,6 +521,7 @@
            </a>.
         </div>
      </div>
+     {% endif %}
   <!-- Modal -->
   <div class="modal fade" id="myModal">
     <div class="modal-dialog">
