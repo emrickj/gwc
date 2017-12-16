@@ -76,7 +76,7 @@ page_names:
 <body id="demo" onload="resizeHtmlEditor()" onresize="resizeHtmlEditor()" contextmenu="websitemenu">
 <datalist id="pnames">
   {% for item in page.page_names %}
-  <option id="option{% increment my_counter %}" value="{{ item }}">
+  <option id="option{{ {% increment my_counter %} | plus: 1 }}" value="{{ item }}">
   {% endfor %}	  
 </datalist>
 <!-- Context Menu, Firefox Only -->
