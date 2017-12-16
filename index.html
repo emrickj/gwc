@@ -76,7 +76,7 @@ page_names:
 <body id="demo" onload="resizeHtmlEditor()" onresize="resizeHtmlEditor()" contextmenu="websitemenu">
 <datalist id="pnames">
   {% for item in page.page_names %}
-  <option id="option1" value="{{ item }}">
+  <option id="option{% increment my_counter %}" value="{{ item }}">
   {% endfor %}	  
 </datalist>
 <!-- Context Menu, Firefox Only -->
@@ -98,7 +98,7 @@ page_names:
        </div>
     </div>
     <br>
-    <% endif %>
+    {% endif %}
     <form class="form-horizontal" id="webdata" action="website_submit.php" method="post"
           autocomplete="off" enctype="multipart/form-data" target="_blank">
          <div class="panel panel-default">
