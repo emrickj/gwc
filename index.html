@@ -93,8 +93,8 @@ page_names:
 </div>
 <br>
 <div class="container">
-    {% if page.header_msg != nil %} 
-    <div class="panel panel-default" accesskey="t">
+    {% if site.show_header %} 
+    <div class="panel panel-primary" accesskey="t">
        <div class="panel-body">
 	   {{ page.header_msg }}
        </div>
@@ -410,9 +410,9 @@ page_names:
            </div>
         </div>
      </form>
-     {% if page.footer_msg != nil %}
+     {% if site.show_footer %}
      <br>
-     <div class="panel panel-default" accesskey="b">
+     <div class="panel panel-primary" accesskey="b">
         <div class="panel-body">
             {{ page.footer_msg }}
 	</div>

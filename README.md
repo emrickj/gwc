@@ -1,2 +1,2 @@
 # gwc
-Front-end of GEM Website Creator
+Customizable user interface of the GEM Website Creator.
