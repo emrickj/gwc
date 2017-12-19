@@ -416,6 +416,19 @@ page_names:
         <div class="panel-body">
             {{ page.footer_msg }}
 	</div>
+	{% if site.social_media_icons %}
+	<div class="panel-footer">
+		{% if site.facebook_url != nil %}
+		<a href="{{ site.facebook_url }}" target="_blank"><i class="fa fa-facebook-square fa-2x" style="color: #3b5898;"></i></a>
+		{% endif %}
+		{% if site.google_plus_url != nil %}
+		<a href="{{ site.google_plus_url }}" target="_blank"><i class="fa fa-google-plus-square fa-2x" style="color: #db4437;"></i></a>
+		{% endif %}
+		{% if site.github_url != nil %}
+		<a href="{{ site.github_url }}" target="_blank"><i class="fa fa-github-square fa-2x" style="color: black;"></i></a>
+		{% endif %}
+	</div>
+	{% endif %}
      </div>
      {% endif %}
   <!-- Modal -->
