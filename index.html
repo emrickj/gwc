@@ -81,6 +81,7 @@ page_names:
      <option id="option{{ my_counter }}" value="{{ item }}">
   {% endfor %}	  
 </datalist>
+{% if site.show_navbar == false %}
 <!-- Context Menu, Firefox Only -->
 <div contextmenu="mymenu">
 
@@ -91,6 +92,31 @@ page_names:
 </menu>
 
 </div>
+{% endif %}
+{% if site.show_navbar %}
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="{{ site.url | append: "#1" }}">Page 1</a></li>
+      <li><a href="{{ site.url | append: "#2" }}">Page 2</a></li>
+      <li><a href="{{ site.url | append: "#3" }}">Page 3</a></li>
+      <li><a href="{{ site.url | append: "#4" }}">Page 4</a></li>
+      <li><a href="{{ site.url | append: "#5" }}">Page 5</a></li>
+      <li><a href="{{ site.url | append: "#6" }}">Page 6</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Options
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ site.url | append: "#" }}" id="opnmi">Open Website</a></li>
+          <li><a href="{{ site.url | append: "#" }}" id="submi">Submit Website</a></li>
+          <li><a href="{{ site.url | append: "#" }}" id="optmi">Website Options</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="padding-top: 50px;"></div>
+{% endif %}
 <br>
 <div class="container">
     {% if site.show_header %} 
