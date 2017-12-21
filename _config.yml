@@ -1,3 +1,4 @@
+bootstrap_theme: true
 show_navbar: true
 show_header: true
 show_footer: true
