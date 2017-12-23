@@ -63,7 +63,7 @@
  * Licensed under MIT (https://github.com/crpietschmann/jHtmlArea/blob/master/LICENSE)
  */
 
-div.jHtmlArea { display: block; overflow: hidden; border: solid 1px #aaa; }
+div.jHtmlArea { display: block; overflow: hidden; border: solid 1px #aaa; border-radius: $input-border-radius;}
 
     div.jHtmlArea iframe, div.jHtmlArea textarea {
         border: none;
