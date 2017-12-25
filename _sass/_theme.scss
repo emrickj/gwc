@@ -95,7 +95,12 @@
 .btn-warning { @include btn-styles($btn-warning-bg); }
 .btn-danger  { @include btn-styles($btn-danger-bg); }
 
-
+div.jHtmlArea .ToolBar ul {
+  @include gradient-vertical($start-color: $btn-default-bg, $end-color: darken($btn-default-bg, 12%));
+}
+div.jHtmlArea .ToolBar ul li:hover {
+  @include gradient-vertical($start-color: darken($btn-default-bg, 12%), $end-color: $btn-default-bg);
+}
 //
 // Images
 // --------------------------------------------------
