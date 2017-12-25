@@ -1,4 +1,4 @@
-bootstrap_theme: false
+bootstrap_theme: true
 show_navbar: false
 show_header: true
 show_footer: true
