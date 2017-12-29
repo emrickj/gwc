@@ -63,7 +63,7 @@
  * Licensed under MIT (https://github.com/crpietschmann/jHtmlArea/blob/master/LICENSE)
  */
 
-div.jHtmlArea { display: block; overflow: hidden; border: solid 1px #aaa; border-radius: $input-border-radius;}
+div.jHtmlArea { display: block; overflow: hidden; border: solid 1px #aaa; border-radius: $input-border-radius; background-color: white;}
 
     div.jHtmlArea iframe, div.jHtmlArea textarea {
         border: none;
@@ -118,7 +118,23 @@ div.jHtmlArea .ToolBar ul li a.increasefontsize { background-position: -48px -32
 div.jHtmlArea .ToolBar ul li a.decreasefontsize { background-position: -64px -32px;}
 div.jHtmlArea .ToolBar ul li a.forecolor { background-position: -80px -32px;}
 
+// Color Picker Menu
+div.jHtmlAreaColorPickerMenu {border: solid 1px #bbb; background-color: #ddd; width: 112px;}
+div.jHtmlAreaColorPickerMenu div {float: left; margin: 2px; width: 12px; height: 14px;}
+div.jHtmlAreaColorPickerMenu div:hover {margin: 2px; border: dotted 2px black;}
+
+div.jHtmlAreaColorPickerMenu div.automatic { width: 104px; height: auto; padding: 2px;}
+div.jHtmlAreaColorPickerMenu div.automatic div { margin: 2px; width: 12px; height: 14px;  border: solid 1px black;}
+
 {% if site.bootstrap_theme %}
 // Bootstrap Theme
 @import "theme";
 {% endif %}
+
+// GEM Website Editor CSS
+body {background-color: lighten($panel-primary-heading-bg, 35%); cursor: default;}
+textarea {font-family:"Courier New", Courier, monospace;}
+label.col-lg-12 {color: #8a6d3b;}
+.panel-heading ~ .panel-body {background-color: lighten($panel-success-heading-bg, 5%);}
+#iconsDisp div {width: 1.5em; float: left; padding-left: 4px; box-sizing: border-box;}
+#iconsDisp div:hover {background-color: #CCCCCC;}
