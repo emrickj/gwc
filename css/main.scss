@@ -127,6 +127,6 @@ div.jHtmlArea .ToolBar ul li a.forecolor { background-position: -80px -32px;}
 body {background-color: lighten($panel-primary-heading-bg, 35%); cursor: default;}
 textarea {font-family:"Courier New", Courier, monospace;}
 label.col-lg-12 {color: #8a6d3b;}
-.form-horizontal .panel-body {background-color: lighten($panel-success-heading-bg, 10%);}
+.panel-body {background-color: lighten($panel-success-heading-bg, 10%);}
 #iconsDisp div {width: 1.5em; float: left; padding-left: 4px; box-sizing: border-box;}
 #iconsDisp div:hover {background-color: #CCCCCC;}
