@@ -124,9 +124,9 @@ div.jHtmlArea .ToolBar ul li a.forecolor { background-position: -80px -32px;}
 {% endif %}
 
 // GEM Website Editor CSS
-body {background-color: lighten($panel-primary-heading-bg, 25%); cursor: default;}
+body {background-color: lighten($panel-primary-heading-bg, 35%); cursor: default;}
 textarea {font-family:"Courier New", Courier, monospace;}
 label.col-lg-12 {color: #8a6d3b;}
-form.panel .panel-body {background-color: lighten($panel-success-heading-bg, 10%);}
+.form-horizontal .panel .panel-body {background-color: lighten($panel-success-heading-bg, 10%);}
 #iconsDisp div {width: 1.5em; float: left; padding-left: 4px; box-sizing: border-box;}
 #iconsDisp div:hover {background-color: #CCCCCC;}
