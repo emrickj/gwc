@@ -1,5 +1,5 @@
 bootstrap_theme: true
-show_navbar: true
+show_navbar: false
 show_header: true
 show_footer: true
 social_media_icons: true
