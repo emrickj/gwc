@@ -170,6 +170,10 @@
     desc: Horizontal Menu
     cssf: Bootstrap 3
     pwfn: 501
+  - name: 5rb
+    desc: Rainbow
+    cssf: Bootstrap 4
+    pwfn: 501
   - name: 991
     desc: Horizontal Menu
     cssf: 99Lime
