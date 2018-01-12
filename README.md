@@ -1,2 +1,2 @@
 # gwc
-Customizable user interface of the GEM Website Creator.
+Customizable user interface of the 💎GEM Website Creator.
