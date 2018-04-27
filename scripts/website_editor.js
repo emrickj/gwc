@@ -492,7 +492,7 @@ function esc_code(cd) {
 		   var pi = $(v).children("image").text();
 		   $("#pimage" + (i+1)).val(pi);
 		   if (pi.length > 0) $("#pimage" + (i+1)).show();
-		   var pc = $(v).children("contents").html();
+		   var pc = $(v).children("contents").text();
 		   $("#content" + (i+1)).val(pc);
 		   $("#content" + (i+1)).htmlarea('updateHtmlArea');
                 });
