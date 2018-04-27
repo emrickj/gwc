@@ -482,6 +482,9 @@ function esc_code(cd) {
 		var st = $("style",xmlDoc).text();
                 $("#css").text(st);
                 css_update_ta();
+		$("page",xmlDoc).each(function(i,this) {
+                alert(i);
+                });
                 for (var i=1;i <= 6;i++) {
                    var p = xmlDoc.getElementsByTagName("page")[i-1].attributes;
                    if (p) {
