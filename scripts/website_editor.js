@@ -482,9 +482,8 @@ function esc_code(cd) {
                 if (th.length > 0)
                    $("#theme").val(th.getNamedItem("theme").nodeValue);
 		var wt = $("title",xmlDoc).html();
-		alert(wt);
-                var wt = xmlDoc.getElementsByTagName("title")[0];
-                if (wt && wt.childNodes[0]) $("#title").val(wt.childNodes[0].nodeValue);
+		//alert(wt);
+                $("#title").val(wt);
                 var st = xmlDoc.getElementsByTagName("style")[0];
                 if (st && st.childNodes[0]) {
                    $("#css").text(st.childNodes[0].nodeValue);
