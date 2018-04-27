@@ -466,50 +466,36 @@ function esc_code(cd) {
 
     if (!f) {
         alert("Failed to load file");
-    } else if (!(f.name.match(/xml/i) || f.name.match(/bin/i) || f.name.match(/64c/i))) {
+    } else if (!f.name.match(/xml/i)) {
 		    alert(f.name + " is not a valid website file.");
     } else {
              var r = new FileReader();
              r.onload = function(e) {
                 reset_form();
 	              var contents = e.target.result;
-                // alert(contents);
                 parser = new DOMParser();
                 xmlDoc = parser.parseFromString(contents,"text/xml");
-
-                // document.getElementById("demo").innerHTML =;
-                th = xmlDoc.getElementsByTagName("website")[0].attributes;
-                if (th.length > 0)
-                   $("#theme").val(th.getNamedItem("theme").nodeValue);
-                var wt = xmlDoc.getElementsByTagName("title")[0];
-                if (wt && wt.childNodes[0]) $("#title").val(wt.childNodes[0].nodeValue);
-                var st = xmlDoc.getElementsByTagName("style")[0];
-                if (st && st.childNodes[0]) {
-                   $("#css").text(st.childNodes[0].nodeValue);
-                   css_update_ta();
-                }
-                for (var i=1;i <= 6;i++) {
-                   var p = xmlDoc.getElementsByTagName("page")[i-1].attributes;
-                   if (p) {
-                      //var pt = p.getAttributeNode("type");
-                      if (p.getNamedItem("type").nodeValue=="form") $("#ctform").prop("checked",true);
-                   }
-                   var pn = xmlDoc.getElementsByTagName("name")[i-1].childNodes[0];
-                   if (pn) {
-                      $("#pname" + i).val(pn.nodeValue);
-                      delist(pn.nodeValue);
-                   }
-                   var pi = xmlDoc.getElementsByTagName("image")[i-1].childNodes[0];
-                   if (pi) {
-                      $("#pimage" + i).val(pi.nodeValue);
-                      $("#pimage" + i).show();
-                   }
-                   var pc = xmlDoc.getElementsByTagName("contents")[i-1].childNodes[0];
-                   if (pc) {
-                      $("#content" + i).val(pc.nodeValue);
-                      $("#content" + i).htmlarea('updateHtmlArea');
-                   }
-                }
+		var th = $("website",xmlDoc).attr("theme");
+                if (th) $("#theme").val(th);
+		var wt = $("title",xmlDoc).text();
+                $("#title").val(wt);
+		var st = $("style",xmlDoc).text();
+                $("#css").text(st);
+                css_update_ta();
+		$("page",xmlDoc).each(function(i,v) {
+		   var p = $(v).attr("type");
+		   if (p)
+		      if (p=="form") $("#ctform").prop("checked",true);
+		   var pn = $(v).children("name").text();
+		   $("#pname" + (i+1)).val(pn);
+		   delist(pn);
+		   var pi = $(v).children("image").text();
+		   $("#pimage" + (i+1)).val(pi);
+		   if (pi.length > 0) $("#pimage" + (i+1)).show();
+		   var pc = $(v).children("contents").text();
+		   $("#content" + (i+1)).val(pc);
+		   $("#content" + (i+1)).htmlarea('updateHtmlArea');
+                });
                 document.getElementById("clsbtn2").click();
                 document.getElementById("pname1").focus();
              }
