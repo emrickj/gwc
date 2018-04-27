@@ -475,7 +475,7 @@ function esc_code(cd) {
 	              var contents = e.target.result;
                 parser = new DOMParser();
                 xmlDoc = parser.parseFromString(contents,"text/xml");
-		var th = $("website",xmlDoc),attr("theme");
+		var th = $("website",xmlDoc).attr("theme");
                 if (th.length > 0) $("#theme").val(th);
 		var wt = $("title",xmlDoc).html();
                 $("#title").val(wt);
