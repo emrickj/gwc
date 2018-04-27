@@ -466,7 +466,7 @@ function esc_code(cd) {
 
     if (!f) {
         alert("Failed to load file");
-    } else if (!(f.name.match(/xml/i) || f.name.match(/bin/i) || f.name.match(/64c/i))) {
+    } else if (!f.name.match(/xml/i)) {
 		    alert(f.name + " is not a valid website file.");
     } else {
              var r = new FileReader();
@@ -477,7 +477,7 @@ function esc_code(cd) {
                 xmlDoc = parser.parseFromString(contents,"text/xml");
 		var th = $("website",xmlDoc).attr("theme");
                 if (th) $("#theme").val(th);
-		var wt = $("title",xmlDoc).html();
+		var wt = $("title",xmlDoc).text();
                 $("#title").val(wt);
 		var st = $("style",xmlDoc).text();
                 $("#css").text(st);
@@ -486,7 +486,7 @@ function esc_code(cd) {
 		   var p = $(v).attr("type");
 		   if (p)
 		      if (p=="form") $("#ctform").prop("checked",true);
-		   var pn = $(v).children("name").html();
+		   var pn = $(v).children("name").text();
 		   $("#pname" + (i+1)).val(pn);
 		   delist(pn);
 		   var pi = $(v).children("image").text();
