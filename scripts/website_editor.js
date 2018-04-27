@@ -473,22 +473,15 @@ function esc_code(cd) {
              r.onload = function(e) {
                 reset_form();
 	              var contents = e.target.result;
-                // alert(contents);
                 parser = new DOMParser();
                 xmlDoc = parser.parseFromString(contents,"text/xml");
-
-                // document.getElementById("demo").innerHTML =;
-                th = xmlDoc.getElementsByTagName("website")[0].attributes;
-                if (th.length > 0)
-                   $("#theme").val(th.getNamedItem("theme").nodeValue);
+		var th = $("website",xmlDoc),attr("theme");
+                if (th.length > 0) $("#theme").val(th);
 		var wt = $("title",xmlDoc).html();
-		//alert(wt);
                 $("#title").val(wt);
-                var st = xmlDoc.getElementsByTagName("style")[0];
-                if (st && st.childNodes[0]) {
-                   $("#css").text(st.childNodes[0].nodeValue);
-                   css_update_ta();
-                }
+		var st = $("style",xmlDoc).text();
+                $("#css").text(st);
+                css_update_ta();
                 for (var i=1;i <= 6;i++) {
                    var p = xmlDoc.getElementsByTagName("page")[i-1].attributes;
                    if (p) {
