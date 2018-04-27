@@ -481,6 +481,8 @@ function esc_code(cd) {
                 th = xmlDoc.getElementsByTagName("website")[0].attributes;
                 if (th.length > 0)
                    $("#theme").val(th.getNamedItem("theme").nodeValue);
+		var wt = $("title",xmlDoc).html();
+		alert(wt);
                 var wt = xmlDoc.getElementsByTagName("title")[0];
                 if (wt && wt.childNodes[0]) $("#title").val(wt.childNodes[0].nodeValue);
                 var st = xmlDoc.getElementsByTagName("style")[0];
