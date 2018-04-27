@@ -483,30 +483,19 @@ function esc_code(cd) {
                 $("#css").text(st);
                 css_update_ta();
 		$("page",xmlDoc).each(function(i,v) {
-                alert(i+v);
+		   var p = $(v).attr("type");
+		   if (p)
+		      if (p=="form") $("#ctform").prop("checked",true);
+		   var pn = $(v).children("name").html();
+		   $("#pname" + (i+1)).val(pn);
+		   delist(pn);
+		   var pi = $(v).children("image").text();
+		   $("#pimage" + (i+1)).val(pi);
+		   if (pi.length > 0) $("#pimage" + (i+1)).show();
+		   var pc = $(v).children("contents").html();
+		   $("#content" + (i+1)).val(pc);
+		   $("#content" + (i+1)).htmlarea('updateHtmlArea');
                 });
-                for (var i=1;i <= 6;i++) {
-                   var p = xmlDoc.getElementsByTagName("page")[i-1].attributes;
-                   if (p) {
-                      //var pt = p.getAttributeNode("type");
-                      if (p.getNamedItem("type").nodeValue=="form") $("#ctform").prop("checked",true);
-                   }
-                   var pn = xmlDoc.getElementsByTagName("name")[i-1].childNodes[0];
-                   if (pn) {
-                      $("#pname" + i).val(pn.nodeValue);
-                      delist(pn.nodeValue);
-                   }
-                   var pi = xmlDoc.getElementsByTagName("image")[i-1].childNodes[0];
-                   if (pi) {
-                      $("#pimage" + i).val(pi.nodeValue);
-                      $("#pimage" + i).show();
-                   }
-                   var pc = xmlDoc.getElementsByTagName("contents")[i-1].childNodes[0];
-                   if (pc) {
-                      $("#content" + i).val(pc.nodeValue);
-                      $("#content" + i).htmlarea('updateHtmlArea');
-                   }
-                }
                 document.getElementById("clsbtn2").click();
                 document.getElementById("pname1").focus();
              }
