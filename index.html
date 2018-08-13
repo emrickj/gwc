@@ -91,8 +91,11 @@ page_names:
 </div>
 {% endif %}
 {% if site.show_navbar %}
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top hidden-xs">
   <div class="container-fluid">
+    <div class="navbar-header">
+	    <a class="navbar-brand" href="https://www.gem-editor.com" target="_blank"><i class="fa">&#xf219;</i></a>
+    </div>
     <ul class="nav navbar-nav">
       <li><a href="javascript:document.getElementById('pname1').focus()">Page 1</a></li>
       <li><a href="javascript:document.getElementById('pname2').focus()">Page 2</a></li>
