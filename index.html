@@ -91,7 +91,7 @@ page_names:
 </div>
 {% endif %}
 {% if site.show_navbar %}
-<nav class="navbar navbar-default navbar-fixed-top hidden-xs">
+<nav class="navbar {{ site:navbar_color | prepend: "navbar-" }} navbar-fixed-top hidden-xs">
   <div class="container-fluid">
     <div class="navbar-header">
 	    <a class="navbar-brand" href="https://www.gem-editor.com" target="_blank"><i class="fa">&#xf219;</i></a>
