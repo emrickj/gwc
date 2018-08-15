@@ -4,7 +4,7 @@ bootstrap_theme: true
 
 show_navbar: true
 
-navbar_color: inverse
+navbar_color: default
 # Color choices are default or inverse.
 
 show_header: true
