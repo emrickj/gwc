@@ -168,6 +168,7 @@
            $("[id^='pname']").blur(function(){
               var r = delist(this.value);
               update_state(r,this);
+	      alert($(this).parent().parent().parent().next().val());
            });
            $("[id^='pname']").dblclick(function(){
               //$(this).hide();
