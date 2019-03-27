@@ -162,14 +162,14 @@
                  }
            });
            icons_display();
-           $("[name^='pname'],.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
+           $("[id^='pname'],.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
            //if(screen.width <= 750) document.getElementById("theme2").selected = true;
            //$("#iconsModal").modal({backdrop: false});
-           $("[name^='pname']").blur(function(){
+           $("[id^='pname']").blur(function(){
               var r = delist(this.value);
               update_state(r,this);
            });
-           $("[name^='pname']").dblclick(function(){
+           $("[id^='pname']").dblclick(function(){
               //$(this).hide();
               var p = this;
               $("#iconsModal").modal({backdrop: false});
