@@ -145,7 +145,7 @@ page_forms:
 	  {% assign my_counter = 0 %}
 	  {% for item in page.page_forms %}
 		 {% assign my_counter = my_counter | plus: 1 %}
-         <div class="panel panel-default">
+         <div class="panel panel-{{ item.color }}">
             <div class="panel-heading" id="ptext{{ my_counter }}"><i class="fa fa-2x">{{ item.label }}</i></div>
             <div class="panel-body">
                   <div class="col-lg-4 fa has-feedback" style="padding-bottom: 20px;">
