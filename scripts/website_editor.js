@@ -165,7 +165,7 @@
            $("[id^='pname'],.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
            //if(screen.width <= 750) document.getElementById("theme2").selected = true;
            //$("#iconsModal").modal({backdrop: false});
-           $("[id^='pname']").blur(function(){
+           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").blur(function(){
               var r = delist(this.value);
               update_state(r,this);
 	      alert($(this).parent().parent().parent().next().val());
