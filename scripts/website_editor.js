@@ -162,7 +162,7 @@
                  }
            });
            icons_display();
-           $("[id^='pname'],.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
+           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6,.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
            //if(screen.width <= 750) document.getElementById("theme2").selected = true;
            //$("#iconsModal").modal({backdrop: false});
            $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").blur(function(){
@@ -170,7 +170,7 @@
               update_state(r,this);
 	      alert($(this).parent().parent().parent().next().val());
            });
-           $("[id^='pname']").dblclick(function(){
+           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").dblclick(function(){
               //$(this).hide();
               var p = this;
               $("#iconsModal").modal({backdrop: false});
@@ -412,19 +412,19 @@ function em_txt(th) {
 function update_state(st,th) {
     switch(st) {
        case 1:
-          $(th).parent().toggleClass("has-success",true);
-          $(th).parent().toggleClass("has-error",false);
-          $(th).siblings().html("&#x2705;&#xfe0f;");
+          $(th).parent().parent().toggleClass("has-success",true);
+          $(th).parent().parent().toggleClass("has-error",false);
+          $(th).parent().siblings().html("&#x2705;&#xfe0f;");
           break;
        case 2:
-          $(th).parent().toggleClass("has-success",false);
-          $(th).parent().toggleClass("has-error",true);
-          $(th).siblings().html("&#x274e;&#xfe0f;");
+          $(th).parent().parent().toggleClass("has-success",false);
+          $(th).parent().parent().toggleClass("has-error",true);
+          $(th).parent().siblings().html("&#x274e;&#xfe0f;");
           break;
        default:
-          $(th).parent().toggleClass("has-success",false);
-          $(th).parent().toggleClass("has-error",false);
-          $(th).siblings().html("");
+          $(th).parent().parent().toggleClass("has-success",false);
+          $(th).parent().parent().toggleClass("has-error",false);
+          $(th).parent().siblings().html("");
     }
 }
 
