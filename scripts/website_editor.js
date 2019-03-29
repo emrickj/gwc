@@ -491,7 +491,7 @@ function esc_code(cd) {
 		   var pn = $(v).children("name").text();
 		   $("#pn" + (i+1)).val(pn);
 		   if (pn.charAt(1)==" ") {
-		      $("#picon" + (i+1)).text("<i class='fa'>" + pn.charAt(0) +"</i>");
+		      $("#picon" + (i+1)).html("<i class='fa'>" + pn.charAt(0) +"</i>");
 		      $("#pname" +(i+1)).val(pn.slice(2));
 		   } else $("#pname" +(i+1)).val(pn);
 		   delist(pn);
