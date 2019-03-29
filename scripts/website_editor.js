@@ -491,9 +491,9 @@ function esc_code(cd) {
 		   var pn = $(v).children("name").text();
 		   $("#pn" + (i+1)).val(pn);
 		   if (pn.charAt(1)==" ") {
-		      $("#picon" + (i+1)).text(pn.charAt(0));
+		      $("#picon" + (i+1)).text("<i class='fa'>" + pn.charAt(0) +"</i>");
 		      $("#pname" +(i+1)).val(pn.slice(2));
-		   }
+		   } else $("#pname" +(i+1)).val(pn);
 		   delist(pn);
 		   var pi = $(v).children("image").text();
 		   $("#pimage" + (i+1)).val(pi);
