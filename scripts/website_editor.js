@@ -489,7 +489,11 @@ function esc_code(cd) {
 		   if (p)
 		      if (p=="form") $("#ctform").prop("checked",true);
 		   var pn = $(v).children("name").text();
-		   $("#pname" + (i+1)).val(pn);
+		   $("#pn" + (i+1)).val(pn);
+		   if (pn.charAt(1)==" ") {
+		      $("#picon" + (i+1)).text(pn.charAt(0));
+		      $("#pname" +(i+1)).val(pn.slice(2));
+		   }
 		   delist(pn);
 		   var pi = $(v).children("image").text();
 		   $("#pimage" + (i+1)).val(pi);
