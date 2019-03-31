@@ -398,7 +398,7 @@ function icon_rm(event,th) {
       event.preventDefault();
       if(confirm("Do you want to delete icon?")) {
 	 $(th).html("");
-	 th.nextSibling.focus();
+	 th.nextElementSibling.focus();
       }
    }
 }
