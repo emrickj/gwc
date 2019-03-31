@@ -334,13 +334,13 @@ function reset_form() {
    $(".has-feedback [name^='file']").each(function() {
       update_state(0,this);
    });
-   //$("[name^='content']").each(function() {
-   //   $(this).val("");
-   //   $(this).htmlarea("updateHtmlArea");
-   //});
-   //$("#ctform").prop("checked",false);
-   //$("#css").text("");
-   //css_update_ta();
+   $("[name^='content']").each(function() {
+      $(this).val("");
+      $(this).htmlarea("updateHtmlArea");
+   });
+   $("#ctform").prop("checked",false);
+   $("#css").text("");
+   css_update_ta();
    //if(screen.width <= 750) document.getElementById("theme2").selected = true;
 }
 
