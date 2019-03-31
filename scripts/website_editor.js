@@ -163,7 +163,7 @@
            });
            icons_display();
 	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").click(function(){
-	      $(th).next().trigger("dblclick");
+	      $(this).next().trigger("dblclick");
 	   });
 	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").attr("oncontextmenu","icon_rm(event,this);");
            $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6,.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
@@ -396,7 +396,10 @@ function icon_rc(event,th) {
 function icon_rm(event,th) {
    if ($(th).html()!="" && window.getSelection()=="") {
       event.preventDefault();
-      if(confirm("Do you want to delete icon?")) $(th).html("");
+      if(confirm("Do you want to delete icon?")) {
+	 $(th).html("");
+	 th.nextSibling.focus();
+      }
    }
 }
 
