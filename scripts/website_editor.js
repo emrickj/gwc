@@ -185,6 +185,7 @@
                     if (ces.slice(0,3)!="%EF") toc = "%EF%B8%8E";
 	            $(p).prev().html("<i class='fa'>" + window.getSelection() + decodeURI(toc) + "</i>");
                     $("#iconsDisp").off("dblclick");
+	            p.focus();
                  }
               });
            });
