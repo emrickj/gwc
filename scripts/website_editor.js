@@ -168,8 +168,8 @@
            $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").blur(function(){
               var r = delist(this.value);
               update_state(r,this);
-	      if ($(this).prev().txt()!="")
-		 $(this).parent().parent().parent().next().val($(this).prev().txt() + " " + this.value);
+	      if ($(this).prev().text()!="")
+		 $(this).parent().parent().parent().next().val($(this).prev().text() + " " + this.value);
 	      else $(this).parent().parent().parent().next().val(this.value);
            });
            $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").dblclick(function(){
