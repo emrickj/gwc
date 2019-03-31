@@ -162,14 +162,21 @@
                  }
            });
            icons_display();
-           $("[name^='pname'],.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
+	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").click(function(){
+	      $(this).next().trigger("dblclick");
+	   });
+	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").attr("oncontextmenu","icon_rm(event,this);");
+           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6,.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
            //if(screen.width <= 750) document.getElementById("theme2").selected = true;
            //$("#iconsModal").modal({backdrop: false});
-           $("[name^='pname']").blur(function(){
+           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").blur(function(){
               var r = delist(this.value);
               update_state(r,this);
+	      if ($(this).prev().text()!="")
+		 $(this).parent().parent().parent().next().val($(this).prev().text() + " " + this.value);
+	      else $(this).parent().parent().parent().next().val(this.value);
            });
-           $("[name^='pname']").dblclick(function(){
+           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").dblclick(function(){
               //$(this).hide();
               var p = this;
               $("#iconsModal").modal({backdrop: false});
@@ -177,12 +184,12 @@
                  //alert(p);
                  if (window.getSelection().toString()) {
                     $("#iconsModal").modal("hide");
-                    var pn = $(p).val();
                     var ces = encodeURI(window.getSelection());
                     var toc = "";
                     if (ces.slice(0,3)!="%EF") toc = "%EF%B8%8E";
-                    $(p).val(window.getSelection()+decodeURI(toc)+" "+pn);
+	            $(p).prev().html("<i class='fa'>" + window.getSelection() + decodeURI(toc) + "</i>");
                     $("#iconsDisp").off("dblclick");
+	            p.focus();
                  }
               });
            });
@@ -325,7 +332,8 @@ function clear_pimage(th) {
 function reset_form() {
    document.getElementById("webdata").reset();
    $("[name^='pimage']").hide();
-   $("[name^='pname']").each(function() {
+   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").html("");
+   $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").each(function() {
       var r = delist(this.value);
       update_state(r,this);
    });
@@ -385,6 +393,16 @@ function icon_rc(event,th) {
    }
 }
 
+function icon_rm(event,th) {
+   if ($(th).html()!="" && window.getSelection()=="") {
+      event.preventDefault();
+      if(confirm("Do you want to delete icon?")) {
+	 $(th).html("");
+	 th.nextElementSibling.focus();
+      }
+   }
+}
+
 function image_file_va(evt) {
    var st = 0;
    var f = evt.target.files[0]; 
@@ -411,19 +429,19 @@ function em_txt(th) {
 function update_state(st,th) {
     switch(st) {
        case 1:
-          $(th).parent().toggleClass("has-success",true);
-          $(th).parent().toggleClass("has-error",false);
-          $(th).siblings().html("&#x2705;&#xfe0f;");
+          $(th).parent().parent().toggleClass("has-success",true);
+          $(th).parent().parent().toggleClass("has-error",false);
+          $(th).parent().siblings().html("&#x2705;&#xfe0f;");
           break;
        case 2:
-          $(th).parent().toggleClass("has-success",false);
-          $(th).parent().toggleClass("has-error",true);
-          $(th).siblings().html("&#x274e;&#xfe0f;");
+          $(th).parent().parent().toggleClass("has-success",false);
+          $(th).parent().parent().toggleClass("has-error",true);
+          $(th).parent().siblings().html("&#x274e;&#xfe0f;");
           break;
        default:
-          $(th).parent().toggleClass("has-success",false);
-          $(th).parent().toggleClass("has-error",false);
-          $(th).siblings().html("");
+          $(th).parent().parent().toggleClass("has-success",false);
+          $(th).parent().parent().toggleClass("has-error",false);
+          $(th).parent().siblings().html("");
     }
 }
 
@@ -488,7 +506,11 @@ function esc_code(cd) {
 		   if (p)
 		      if (p=="form") $("#ctform").prop("checked",true);
 		   var pn = $(v).children("name").text();
-		   $("#pname" + (i+1)).val(pn);
+		   $("#pn" + (i+1)).val(pn);
+		   if (pn.charAt(1)==" ") {
+		      $("#picon" + (i+1)).html("<i class='fa'>" + pn.charAt(0) +"</i>");
+		      $("#pname" +(i+1)).val(pn.slice(2));
+		   } else $("#pname" +(i+1)).val(pn);
 		   delist(pn);
 		   var pi = $(v).children("image").text();
 		   $("#pimage" + (i+1)).val(pi);
