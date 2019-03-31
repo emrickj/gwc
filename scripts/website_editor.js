@@ -326,7 +326,7 @@ function clear_pimage(th) {
 function reset_form() {
    document.getElementById("webdata").reset();
    $("[name^='pimage']").hide();
-   //$("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").html("");
+   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").html("");
    //$("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").each(function() {
    //   var r = delist(this.value);
    //   update_state(r,this);
