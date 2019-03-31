@@ -180,11 +180,10 @@
                  //alert(p);
                  if (window.getSelection().toString()) {
                     $("#iconsModal").modal("hide");
-                    var pn = $(p).val();
                     var ces = encodeURI(window.getSelection());
                     var toc = "";
                     if (ces.slice(0,3)!="%EF") toc = "%EF%B8%8E";
-                    $(p).val(window.getSelection()+decodeURI(toc)+" "+pn);
+	            $(p).prev().html("<i class='fa'>" + window.getSelection() + decodeURI(toc) + "</i>");
                     $("#iconsDisp").off("dblclick");
                  }
               });
