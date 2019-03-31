@@ -331,9 +331,9 @@ function reset_form() {
       var r = delist(this.value);
       update_state(r,this);
    });
-   //$(".has-feedback [name^='file']").each(function() {
-   //   update_state(0,this);
-   //});
+   $(".has-feedback [name^='file']").each(function() {
+      update_state(0,this);
+   });
    //$("[name^='content']").each(function() {
    //   $(this).val("");
    //   $(this).htmlarea("updateHtmlArea");
