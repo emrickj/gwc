@@ -324,7 +324,7 @@ function delist(v)
 }
 
 function clear_pimage(th) {
-   var x = $(th).parent().siblings().children("input");
+   var x = $(th).parent().parent().siblings().children("input");
    x.val("");
    x.hide();
 }
