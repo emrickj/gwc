@@ -162,6 +162,7 @@
                  }
            });
            icons_display();
+	   emoji_display();
 	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").click(function(){
 	      $(this).next().trigger("dblclick");
 	   });
@@ -216,10 +217,12 @@
               });
            });*/
            $("#iconsbtn").click(function(){
-              icons_display();
+	      $("#iconslist").show();
+	      $("#emojilist").hide();
            });
            $("#emojisbtn").click(function(){
-              emoji_display();
+	      $("#iconslist").hide();
+	      $("#emojilist").show();
            });
            $("#iconscls").click(function(){
               $("#iconsDisp").off("dblclick");
@@ -360,19 +363,19 @@ function pname_update() {
 
 function icons_display() {
    var st = "";
-   $("#iconsDisp").html("");
+   $("#iconslist").html("");
    for (var i=0;i<740;i++) {
       var hv = String.fromCharCode(0xf000 + i);
       st += "<div>"+hv+"</div>";
       //$("#iconsDisp").append("<i class='fa fa-fw'>"+hv+"</i>");
    }
-   $("#iconsDisp").html(st);
+   $("#iconslist").html(st);
 }
 
 function emoji_display() {
    var st = "";
    var zws = String.fromCharCode(8203);
-   $("#iconsDisp").html("");
+   $("#emojilist").html("");
    for (var i=0x8c;i<0xa8;i++)
       for (var j=0x80;j<0xc0;j++) 
          st += "<div>" + decodeURI('%f0%9f%'+i.toString(16)+'%'+j.toString(16)) + zws + "</div>";
@@ -383,7 +386,7 @@ function emoji_display() {
       st += "<div>"+hv+"</div>";
       //$("#iconsDisp").append("<i class='fa fa-fw'>"+hv+"</i>");
    }
-   $("#iconsDisp").html(st);
+   $("#emojilist").html(st);
 }
 
 function icon_rc(event,th) {
