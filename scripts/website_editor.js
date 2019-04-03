@@ -183,12 +183,13 @@
               $("#iconsModal").modal({backdrop: false});
               $("#iconslist div,#emojilist div").on("dblclick",function(){
                  //alert(p);
-                 if ($(this).text()!="") {
+		 sel = $(this).text();
+                 if (sel) {
                     $("#iconsModal").modal("hide");
-                    var ces = encodeURI($(this).text());
+                    var ces = encodeURI(sel);
                     var toc = "";
                     if (ces.slice(0,3)!="%EF") toc = "%EF%B8%8E";
-	            $(p).prev().html("<i class='fa'>" + $(this).text() + decodeURI(toc) + "</i>");
+	            $(p).prev().html("<i class='fa'>" + sel.trim() + decodeURI(toc) + "</i>");
                     $("#iconslist div,#emojilist div").off("dblclick");
 	            p.focus();
                  }
