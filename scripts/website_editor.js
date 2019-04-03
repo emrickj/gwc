@@ -181,15 +181,15 @@
               //$(this).hide();
               var p = this;
               $("#iconsModal").modal({backdrop: false});
-              $("#iconsDisp").on("dblclick",function(){
+              $("#iconslist div,#emojilist div").on("dblclick",function(){
                  //alert(p);
-                 if (window.getSelection().toString()) {
+                 if ($(this).text()!="") {
                     $("#iconsModal").modal("hide");
-                    var ces = encodeURI(window.getSelection());
+                    var ces = encodeURI($(this).text());
                     var toc = "";
                     if (ces.slice(0,3)!="%EF") toc = "%EF%B8%8E";
-	            $(p).prev().html("<i class='fa'>" + window.getSelection() + decodeURI(toc) + "</i>");
-                    $("#iconsDisp").off("dblclick");
+	            $(p).prev().html("<i class='fa'>" + $(this).text() + decodeURI(toc) + "</i>");
+                    $("#iconslist div,#emojilist div").off("dblclick");
 	            p.focus();
                  }
               });
