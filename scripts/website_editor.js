@@ -220,12 +220,12 @@
            $("#iconsbtn").click(function(){
 	      $("#iconslist").show();
 	      $("#emojilist").hide();
-	      window.scrollTo(0, 0);
+	      $("#iconsDisp").scrollTop(0);
            });
            $("#emojisbtn").click(function(){
 	      $("#iconslist").hide();
 	      $("#emojilist").show();
-	      window.scrollTo(0, 0);
+	      $("#iconsDisp").scrollTop(0);
            });
            $("#iconscls").click(function(){
               $("#iconsDisp").off("dblclick");
