@@ -117,24 +117,25 @@
                                $(this.toolbar).dblclick(function(){
                                    //alert(navigator.appVersion.indexOf('Edge') > -1);
                                     $("#iconsModal").modal({backdrop: false});
-                                    $("#iconsDisp").on("dblclick",function(){
+                                    $("#iconslist div,#emojilist div").on("dblclick",function(){
                                        //alert(p);
-                                       if (window.getSelection().toString()) {
+				       sel = $(this).text();
+                                       if (sel) {
                                           $("#iconsModal").modal("hide");
                                           var pn = p.textarea.val();
-                                          var ces = encodeURI(window.getSelection());
+                                          var ces = encodeURI(sel);
                                           //alert(encodeURI($(p).siblings("textarea").val()));
                                           if (ces.slice(0,3)=="%EF") {
                                              if ((!!document.documentMode) || (navigator.appVersion.indexOf('Edge') > -1)) {
                                                 //alert("test");
-                                                $(p.textarea).val(pn + "<i class='fa'>" + window.getSelection() + "</i>&nbsp;");
+                                                $(p.textarea).val(pn + "<i class='fa'>" + sel + "</i>&nbsp;");
                                                 $(p.textarea).htmlarea("updateHtmlArea");
-                                             } else p.ec("insertHTML",false,"<i class='fa'>" + window.getSelection() + "</i>&nbsp;");
+                                             } else p.ec("insertHTML",false,"<i class='fa'>" + sel + "</i>&nbsp;");
                                           } else if ((!!document.documentMode) || (navigator.appVersion.indexOf('Edge') > -1)) {
-                                                     $(p.textarea).val(pn + window.getSelection());
+                                                     $(p.textarea).val(pn + sel);
                                                      $(p.textarea).htmlarea("updateHtmlArea");
-                                                     } else p.ec("insertText",false,window.getSelection());
-                                          $("#iconsDisp").off("dblclick");
+                                                     } else p.ec("insertText",false,sel);
+                                          $("#iconslist div,#emojilist div").off("dblclick");
                                        }
                                     });
                                });
