@@ -117,24 +117,25 @@
                                $(this.toolbar).dblclick(function(){
                                    //alert(navigator.appVersion.indexOf('Edge') > -1);
                                     $("#iconsModal").modal({backdrop: false});
-                                    $("#iconsDisp").on("dblclick",function(){
+                                    $("#iconslist div,#emojilist div").on("dblclick",function(){
                                        //alert(p);
-                                       if (window.getSelection().toString()) {
+				       sel = $(this).text();
+                                       if (sel) {
                                           $("#iconsModal").modal("hide");
                                           var pn = p.textarea.val();
-                                          var ces = encodeURI(window.getSelection());
+                                          var ces = encodeURI(sel);
                                           //alert(encodeURI($(p).siblings("textarea").val()));
                                           if (ces.slice(0,3)=="%EF") {
                                              if ((!!document.documentMode) || (navigator.appVersion.indexOf('Edge') > -1)) {
                                                 //alert("test");
-                                                $(p.textarea).val(pn + "<i class='fa'>" + window.getSelection() + "</i>&nbsp;");
+                                                $(p.textarea).val(pn + "<i class='fa'>" + sel + "</i>&nbsp;");
                                                 $(p.textarea).htmlarea("updateHtmlArea");
-                                             } else p.ec("insertHTML",false,"<i class='fa'>" + window.getSelection() + "</i>&nbsp;");
+                                             } else p.ec("insertHTML",false,"<i class='fa'>" + sel + "</i>&nbsp;");
                                           } else if ((!!document.documentMode) || (navigator.appVersion.indexOf('Edge') > -1)) {
-                                                     $(p.textarea).val(pn + window.getSelection());
+                                                     $(p.textarea).val(pn + sel);
                                                      $(p.textarea).htmlarea("updateHtmlArea");
-                                                     } else p.ec("insertText",false,window.getSelection());
-                                          $("#iconsDisp").off("dblclick");
+                                                     } else p.ec("insertText",false,sel);
+                                          $("#iconslist div,#emojilist div").off("dblclick");
                                        }
                                     });
                                });
@@ -228,7 +229,7 @@
 	      $("#iconsDisp").scrollTop(0);
            });
            $("#iconscls").click(function(){
-              $("#iconsDisp").off("dblclick");
+              $("#iconslist div,#emojilist div").off("dblclick");
            });
            $("#optbtn,#optmi").click(function(){
               //alert($("#ptext1").html());
@@ -377,11 +378,10 @@ function icons_display() {
 
 function emoji_display() {
    var st = "";
-   var zws = String.fromCharCode(8203);
    $("#emojilist").html("");
    for (var i=0x8c;i<0xa8;i++)
       for (var j=0x80;j<0xc0;j++) 
-         st += "<div>" + decodeURI('%f0%9f%'+i.toString(16)+'%'+j.toString(16)) + zws + "</div>";
+         st += "<div>" + decodeURI('%f0%9f%'+i.toString(16)+'%'+j.toString(16)) + "</div>";
          //$("#iconsDisp").append("<i class='fa fa-fw'>"+decodeURI('%f0%9f%'+i.toString(16)+'%'+j.toString(16))+"</i>");
       //st += "<br>"+ i.toString(16) + "<hr>";   
    for (i=0;i<3072;i++) {
