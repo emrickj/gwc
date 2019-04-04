@@ -229,7 +229,7 @@
 	      $("#iconsDisp").scrollTop(0);
            });
            $("#iconscls").click(function(){
-              $("#iconsDisp").off("dblclick");
+              $("#iconslist div,#emojilist div").off("dblclick");
            });
            $("#optbtn,#optmi").click(function(){
               //alert($("#ptext1").html());
@@ -378,11 +378,10 @@ function icons_display() {
 
 function emoji_display() {
    var st = "";
-   var zws = String.fromCharCode(8203);
    $("#emojilist").html("");
    for (var i=0x8c;i<0xa8;i++)
       for (var j=0x80;j<0xc0;j++) 
-         st += "<div>" + decodeURI('%f0%9f%'+i.toString(16)+'%'+j.toString(16)) + zws + "</div>";
+         st += "<div>" + decodeURI('%f0%9f%'+i.toString(16)+'%'+j.toString(16)) + "</div>";
          //$("#iconsDisp").append("<i class='fa fa-fw'>"+decodeURI('%f0%9f%'+i.toString(16)+'%'+j.toString(16))+"</i>");
       //st += "<br>"+ i.toString(16) + "<hr>";   
    for (i=0;i<3072;i++) {
