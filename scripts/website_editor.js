@@ -182,7 +182,7 @@
                  }
               });
 	   });
-	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").attr({oncontextmenu: "icon_rm(event,this)", ondblclick: "icon_rm(event,this)"});
+	   $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").attr("ondblclick", "icon_rm(event,this)");
            $(".ToolBar").attr("oncontextmenu","icon_rc(event,this);");
            //if(screen.width <= 750) document.getElementById("theme2").selected = true;
            //$("#iconsModal").modal({backdrop: false});
@@ -390,18 +390,16 @@ function emoji_display() {
 }
 
 function icon_rc(event,th) {
-   if (th.value!="") {
-      event.preventDefault();
-      $(th).trigger("dblclick");
-   }
+   event.preventDefault();
+   $(th).trigger("dblclick");
 }
 
 function icon_rm(event,th) {
-   if ($(th).html()!="") {
+   if ($(th).prev().html()!="") {
       event.preventDefault();
       if(confirm("Do you want to delete icon?")) {
-	 $(th).html("");
-	 th.nextElementSibling.focus();
+	 $(th).prev().html("");
+	 th.focus();
       }
    }
 }
