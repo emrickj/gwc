@@ -176,9 +176,9 @@
                     var ces = encodeURI(sel);
                     var toc = "";
                     if (ces.slice(0,3)!="%EF") toc = "%EF%B8%8E";
-	            $(p).prev().html("<i class='fa'>" + sel.trim() + decodeURI(toc) + "</i>");
+	            $(p).html("<i class='fa'>" + sel.trim() + decodeURI(toc) + "</i>");
                     $("#iconslist div,#emojilist div").off("dblclick");
-	            p.focus();
+	            p.nextElementSibling.focus();
                  }
               });
 	   });
