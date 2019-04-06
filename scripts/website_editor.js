@@ -165,20 +165,6 @@
            icons_display();
 	   emoji_display();
 	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").click(function(){
-	      $(this).next().trigger("dblclick");
-	   });
-	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").attr("oncontextmenu","icon_rm(event,this);");
-           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6,.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
-           //if(screen.width <= 750) document.getElementById("theme2").selected = true;
-           //$("#iconsModal").modal({backdrop: false});
-           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").blur(function(){
-              var r = delist(this.value);
-              update_state(r,this);
-	      if ($(this).prev().text()!="")
-		 $(this).parent().parent().parent().next().val($(this).prev().text() + " " + this.value);
-	      else $(this).parent().parent().parent().next().val(this.value);
-           });
-           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").dblclick(function(){
               //$(this).hide();
               var p = this;
               $("#iconsModal").modal({backdrop: false});
@@ -195,6 +181,17 @@
 	            p.focus();
                  }
               });
+	   });
+	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").attr(oncontextmenu: "icon_rm(event,this)", ondblclick: "icon_rm(event,this)");
+           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6,.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
+           //if(screen.width <= 750) document.getElementById("theme2").selected = true;
+           //$("#iconsModal").modal({backdrop: false});
+           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").blur(function(){
+              var r = delist(this.value);
+              update_state(r,this);
+	      if ($(this).prev().text()!="")
+		 $(this).parent().parent().parent().next().val($(this).prev().text() + " " + this.value);
+	      else $(this).parent().parent().parent().next().val(this.value);
            });
            $(".has-feedback [name^='file']").change(function(event){
               //alert("This is a test");
