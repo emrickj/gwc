@@ -150,7 +150,7 @@
            //$(".undo_button").html("<i class='fa fa-undo fa-fw'></i>");
            $(".justify_button").parent().addClass("hidden-xs");
            $(".remove_formatting_button").parent().parent().addClass("hidden-xs");
-           $(".icon_button").parent().parent().addClass("hidden-xs");
+           $(".css_button").parent().parent().addClass("hidden-xs");
            $("[name^='content']").keydown(function(event){
               if (event.which==27) esc = true;
            });
