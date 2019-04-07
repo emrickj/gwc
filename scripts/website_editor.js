@@ -150,7 +150,7 @@
            //$(".undo_button").html("<i class='fa fa-undo fa-fw'></i>");
            $(".justify_button").parent().addClass("hidden-xs");
            $(".remove_formatting_button").parent().parent().addClass("hidden-xs");
-           $(".icon_button").parent().parent().addClass("hidden-xs");
+           $(".css_button").parent().parent().addClass("hidden-xs");
            $("[name^='content']").keydown(function(event){
               if (event.which==27) esc = true;
            });
@@ -165,20 +165,6 @@
            icons_display();
 	   emoji_display();
 	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").click(function(){
-	      $(this).next().trigger("dblclick");
-	   });
-	   $("#picon1,#picon2,#picon3,#picon4,#picon5,#picon6").attr("oncontextmenu","icon_rm(event,this);");
-           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6,.ToolBar").attr("oncontextmenu","icon_rc(event,this);");
-           //if(screen.width <= 750) document.getElementById("theme2").selected = true;
-           //$("#iconsModal").modal({backdrop: false});
-           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").blur(function(){
-              var r = delist(this.value);
-              update_state(r,this);
-	      if ($(this).prev().text()!="")
-		 $(this).parent().parent().parent().next().val($(this).prev().text() + " " + this.value);
-	      else $(this).parent().parent().parent().next().val(this.value);
-           });
-           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").dblclick(function(){
               //$(this).hide();
               var p = this;
               $("#iconsModal").modal({backdrop: false});
@@ -190,11 +176,22 @@
                     var ces = encodeURI(sel);
                     var toc = "";
                     if (ces.slice(0,3)!="%EF") toc = "%EF%B8%8E";
-	            $(p).prev().html("<i class='fa'>" + sel.trim() + decodeURI(toc) + "</i>");
+	            $(p).html("<i class='fa'>" + sel.trim() + decodeURI(toc) + "</i>");
                     $("#iconslist div,#emojilist div").off("dblclick");
-	            p.focus();
+	            p.nextElementSibling.focus();
                  }
               });
+	   });
+	   $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").attr("ondblclick", "icon_rm(event,this)");
+           $(".ToolBar").attr("oncontextmenu","icon_rc(event,this);");
+           //if(screen.width <= 750) document.getElementById("theme2").selected = true;
+           //$("#iconsModal").modal({backdrop: false});
+           $("#pname1,#pname2,#pname3,#pname4,#pname5,#pname6").blur(function(){
+              var r = delist(this.value);
+              update_state(r,this);
+	      if ($(this).prev().text()!="")
+		 $(this).parent().parent().parent().next().val($(this).prev().text() + " " + this.value);
+	      else $(this).parent().parent().parent().next().val(this.value);
            });
            $(".has-feedback [name^='file']").change(function(event){
               //alert("This is a test");
@@ -393,18 +390,16 @@ function emoji_display() {
 }
 
 function icon_rc(event,th) {
-   if (th.value!="" && window.getSelection()=="") {
-      event.preventDefault();
-      $(th).trigger("dblclick");
-   }
+   event.preventDefault();
+   $(th).trigger("dblclick");
 }
 
 function icon_rm(event,th) {
-   if ($(th).html()!="" && window.getSelection()=="") {
+   if ($(th).prev().html()!="") {
       event.preventDefault();
       if(confirm("Do you want to delete icon?")) {
-	 $(th).html("");
-	 th.nextElementSibling.focus();
+	 $(th).prev().html("");
+	 th.focus();
       }
    }
 }
