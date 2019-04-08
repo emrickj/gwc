@@ -178,7 +178,7 @@
                     if (ces.slice(0,3)!="%EF") toc = "%EF%B8%8E";
 	            $(p).html("<i class='fa'>" + sel.trim() + decodeURI(toc) + "</i>");
                     $("#iconslist div,#emojilist div").off("dblclick");
-	            p.nextElementSibling.focus();
+		    $(p).next().triggerHandler("blur");
                  }
               });
 	   });
@@ -399,7 +399,7 @@ function icon_rm(event,th) {
       event.preventDefault();
       if(confirm("Do you want to delete icon?")) {
 	 $(th).prev().html("");
-	 th.focus();
+	 $(th).triggerHandler("blur");
       }
    }
 }
