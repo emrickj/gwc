@@ -473,7 +473,7 @@ function openFullscreen(th) {
   } else if (elem.msRequestFullscreen) { /* IE/Edge */
     elem.msRequestFullscreen();
   }
-  $('div.jHtmlArea textarea').css('height', '100%');
+  $('div.jHtmlArea textarea').css('height', window.innerHeight - 44);
 }
 
  function readCSSFile(evt) {
