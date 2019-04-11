@@ -293,7 +293,7 @@ function resizeHtmlEditor() {
 	    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	    if(screen.width < 400) {
 	       $('div.jHtmlArea textarea').css('height', '300px');
-	    } else $('div.jHtmlArea textarea').css('height', '500px');
+	    } else $('div.jHtmlArea textarea').css('height', '100%');
 	    $('div.jHtmlArea').height($('div.jHtmlArea textarea').height() + 44);
 	    // $('div.jHtmlArea iframe').css('width', '100%');
 	    $('div.jHtmlArea iframe').width($('div.jHtmlArea').width());
