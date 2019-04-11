@@ -290,7 +290,7 @@ function resizeHtmlEditor() {
     } else {
 	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea').css('width', '100%');
-	    $('div.jHtmlArea textarea').css('height', $('body').height() - 221);
+	    $('div.jHtmlArea textarea').css('height', window.innerHeight - 221);
 	    $('div.jHtmlArea').height($('div.jHtmlArea textarea').height() + 44);
 	    // $('div.jHtmlArea iframe').css('width', '100%');
 	    $('div.jHtmlArea iframe').width($('div.jHtmlArea').width());
