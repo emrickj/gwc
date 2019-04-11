@@ -462,6 +462,19 @@ function esc_code(cd) {
     return ch;
 }
 
+function openFullscreen() {
+  var elem = document.getElementById("ptext1");
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
  function readCSSFile(evt) {
     //Retrieve the first (and only!) File from the FileList object
    var f = evt.target.files[0]; 
