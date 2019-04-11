@@ -462,8 +462,8 @@ function esc_code(cd) {
     return ch;
 }
 
-function openFullscreen() {
-  var elem = document.getElementById("ptext1");
+function openFullscreen(elem) {
+  //var elem = document.getElementById("ptext1");
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
   } else if (elem.mozRequestFullScreen) { /* Firefox */
