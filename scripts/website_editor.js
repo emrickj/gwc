@@ -282,7 +282,10 @@ function resizeHtmlEditor() {
 	    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	    if(screen.width < 400) {
 	       $('div.jHtmlArea textarea').css('height', '300px');
-	    } else $('div.jHtmlArea textarea').css('height', '200px');
+	       $('expand-icon').html("");
+	    } else {
+	       $('div.jHtmlArea textarea').css('height', '200px');
+	       $('expand-icon').html("<a href='#'><i class='fa fa-arrows-alt fa-2x'></i></a>");
 	    $('div.jHtmlArea').height($('div.jHtmlArea textarea').height() + 44);
 	    // $('div.jHtmlArea iframe').css('width', '100%');
 	    $('div.jHtmlArea iframe').width($('div.jHtmlArea').width());
@@ -291,6 +294,7 @@ function resizeHtmlEditor() {
 	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea').css('width', '100%');
 	    $('div.jHtmlArea textarea').css('height', window.innerHeight - 221);
+	    $('expand-icon').html("");
 	    $('div.jHtmlArea').height($('div.jHtmlArea textarea').height() + 44);
 	    // $('div.jHtmlArea iframe').css('width', '100%');
 	    $('div.jHtmlArea iframe').width($('div.jHtmlArea').width());
@@ -473,7 +477,7 @@ function esc_code(cd) {
 }
 
 function openFullscreen(th) {
-  var elem = th.parentElement;
+  var elem = th.parentElement.parentElement;
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
   } else if (elem.mozRequestFullScreen) { /* Firefox */
