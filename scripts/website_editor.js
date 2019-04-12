@@ -285,7 +285,7 @@ function resizeHtmlEditor() {
 	       $('.expand-icon').html("");
 	    } else {
 	       $('div.jHtmlArea textarea').css('height', '200px');
-	       $('.expand-icon').html("<a href='#'><i class='fa fa-arrows-alt fa-2x'></i></a>");
+	       $('.expand-icon').html("<i class='fa fa-arrows-alt fa-2x'></i>");
 	    }
 	    $('div.jHtmlArea').height($('div.jHtmlArea textarea').height() + 44);
 	    // $('div.jHtmlArea iframe').css('width', '100%');
