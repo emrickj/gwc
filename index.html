@@ -148,14 +148,14 @@ page_forms:
          <div class="panel panel-{{ item.color }}">
             <div class="panel-heading" id="ptext{{ my_counter }}">
 		  <span><i class="fa fa-2x">{{ item.label }}</i></span>
-		  <span class="expand-icon" onclick="openFullscreen(this);" style="float: right;"></span>
+		  <span class="expand-icon" onclick="openFullscreen(this);" style="float: right;cursor: pointer;"></span>
 	    </div>
             <div class="panel-body">
                   <div class="col-sm-4 has-feedback" style="padding-bottom: 20px;">
                      <label for="pname" class="col-lg-12"><span class="fa fa-pencil"></span></label>
                      <div class="col-lg-12">
 		        <div class="input-group">
-		            <span class="input-group-addon" id="picon{{ my_counter }}"></span>
+		            <span class="input-group-addon" id="picon{{ my_counter }}" style="cursor: pointer;"></span>
 		            <input type="text" class="form-control" id="pname{{ my_counter }}" placeholder="Enter Page Name" 
                             list="pnames" oninput="em_txt(this)" accesskey="{{ my_counter }}">
 		        </div>
