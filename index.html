@@ -147,8 +147,8 @@ page_forms:
 		 {% assign my_counter = my_counter | plus: 1 %}
          <div class="panel panel-{{ item.color }}">
             <div class="panel-heading" id="ptext{{ my_counter }}">
-		  <div><i class="fa fa-2x">{{ item.label }}</i></div>
-		  <div class="expand-icon" onclick="openFullscreen(this);" style="float: right;"></div>
+		  <span><i class="fa fa-2x">{{ item.label }}</i></span>
+		  <span class="expand-icon" onclick="openFullscreen(this);" style="float: right;"></span>
 	    </div>
             <div class="panel-body">
                   <div class="col-sm-4 has-feedback" style="padding-bottom: 20px;">
