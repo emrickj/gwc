@@ -276,16 +276,36 @@
         });
 
 function resizeHtmlEditor() {
-    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
-    $('div.jHtmlArea').css('width', '100%');
-    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    if(screen.width < 400) {
-       $('div.jHtmlArea textarea').css('height', '300px');
-    } else $('div.jHtmlArea textarea').css('height', '200px');
-    $('div.jHtmlArea').height($('div.jHtmlArea textarea').height() + 44);
-    // $('div.jHtmlArea iframe').css('width', '100%');
-    $('div.jHtmlArea iframe').width($('div.jHtmlArea').width());
-    $('div.jHtmlArea iframe').height($('div.jHtmlArea').height() - $('div.ToolBar').height() - 6);
+	if (
+	  !(document.fullscreenElement || /* Standard syntax */
+	  document.webkitFullscreenElement || /* Chrome, Safari and Opera syntax */
+	  document.mozFullScreenElement ||/* Firefox syntax */
+	  document.msFullscreenElement) /* IE/Edge syntax */
+	) {
+	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
+	    $('div.jHtmlArea').css('width', '100%');
+	    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+	    if(screen.width < 400) {
+	       $('div.jHtmlArea textarea').css('height', '300px');
+	       $('.expand-icon').html("");
+	    } else {
+	       $('div.jHtmlArea textarea').css('height', '200px');
+	       $('.expand-icon').html("<i class='fa fa-arrows-alt fa-2x'></i>");
+	    }
+	    $('div.jHtmlArea').height($('div.jHtmlArea textarea').height() + 44);
+	    // $('div.jHtmlArea iframe').css('width', '100%');
+	    $('div.jHtmlArea iframe').width($('div.jHtmlArea').width());
+	    $('div.jHtmlArea iframe').height($('div.jHtmlArea').height() - $('div.ToolBar').height() - 6);
+    } else {
+	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
+	    $('div.jHtmlArea').css('width', '100%');
+	    $('div.jHtmlArea textarea').css('height', window.innerHeight - 221);
+	    $('.expand-icon').html("");
+	    $('div.jHtmlArea').height($('div.jHtmlArea textarea').height() + 44);
+	    // $('div.jHtmlArea iframe').css('width', '100%');
+	    $('div.jHtmlArea iframe').width($('div.jHtmlArea').width());
+	    $('div.jHtmlArea iframe').height($('div.jHtmlArea').height() - $('div.ToolBar').height() - 6);
+    }
 }
 
 function css_update_ta() {
@@ -460,6 +480,20 @@ function esc_code(cd) {
        default: ch=String.fromCharCode(cd);
     }
     return ch;
+}
+
+function openFullscreen(th) {
+  var elem = th.parentElement.parentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+  //$('div.jHtmlArea textarea').css('height', window.innerHeight - 44);
 }
 
  function readCSSFile(evt) {
