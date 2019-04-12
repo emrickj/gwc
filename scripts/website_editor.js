@@ -276,7 +276,12 @@
         });
 
 function resizeHtmlEditor() {
-    if (!document.fullscreenElement) {
+	if (
+	  !(document.fullscreenElement || /* Standard syntax */
+	  document.webkitFullscreenElement || /* Chrome, Safari and Opera syntax */
+	  document.mozFullScreenElement ||/* Firefox syntax */
+	  document.msFullscreenElement) /* IE/Edge syntax */
+	) {
 	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea').css('width', '100%');
 	    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
