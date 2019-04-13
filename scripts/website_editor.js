@@ -282,6 +282,7 @@ function resizeHtmlEditor() {
 	  document.mozFullScreenElement ||/* Firefox syntax */
 	  document.msFullscreenElement) /* IE/Edge syntax */
 	) {
+	    $(".panel").show();
 	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea').css('width', '100%');
 	    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -483,7 +484,9 @@ function esc_code(cd) {
 }
 
 function openFullscreen(th) {
-  var elem = th.parentElement.parentElement;
+  var elem = document.getElementById("fsarea");
+  $(".panel").hide();
+  $(th).parent().parent().show();
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
   } else if (elem.mozRequestFullScreen) { /* Firefox */
