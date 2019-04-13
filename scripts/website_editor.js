@@ -300,9 +300,9 @@ function resizeHtmlEditor() {
     } else {
 	    $('div.jHtmlArea:visible').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea:visible').css('width', '100%');
-	    $('div.jHtmlArea textarea:visible').css('height', window.innerHeight - 221);
+	    $('div.jHtmlArea textarea').css('height', window.innerHeight - 221);
 	    $('.expand-icon:visible').html("");
-	    $('div.jHtmlArea:visible').height($('div.jHtmlArea textarea:visible').height() + 44);
+	    $('div.jHtmlArea:visible').height($('div.jHtmlArea textarea').height() + 44);
 	    // $('div.jHtmlArea iframe').css('width', '100%');
 	    $('div.jHtmlArea iframe:visible').width($('div.jHtmlArea:visible').width());
 	    $('div.jHtmlArea iframe:visible').height($('div.jHtmlArea:visible').height() - $('div.ToolBar:visible').height() - 6);
