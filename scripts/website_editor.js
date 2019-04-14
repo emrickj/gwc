@@ -553,8 +553,8 @@ function openFullscreen(th) {
 			 $("#pname" + (i+1)).val(pn.slice(2));
 			 break;
 		      case 0xdf40:
-			 $("#picon" + (i+1)).html(pn.slice(0,2));
-			 $("#pname" + (i+1)).val(pn.slice(3));
+			 $("#picon" + (i+1)).html(pn.slice(0,3));
+			 $("#pname" + (i+1)).val(pn.slice(4));
 			 break;
 		      default:
 		         $("#pname" +(i+1)).val(pn);
