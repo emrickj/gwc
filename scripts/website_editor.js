@@ -547,6 +547,7 @@ function openFullscreen(th) {
 		      if (p=="form") $("#ctform").prop("checked",true);
 		   var pn = $(v).children("name").text();
 		   $("#pn" + (i+1)).val(pn);
+		   alert(pn.charCodeAt(1));
 		   switch(pn.charCodeAt(1)) {
 		      case 0x20:
 		         $("#picon" + (i+1)).html("<i class='fa'>" + pn.charAt(0) +"</i>");
