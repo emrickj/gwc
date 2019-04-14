@@ -545,10 +545,18 @@ function openFullscreen(th) {
 		      if (p=="form") $("#ctform").prop("checked",true);
 		   var pn = $(v).children("name").text();
 		   $("#pn" + (i+1)).val(pn);
-		   if (pn.charAt(1)==" ") {
-		      $("#picon" + (i+1)).html("<i class='fa'>" + pn.charAt(0) +"</i>");
-		      $("#pname" +(i+1)).val(pn.slice(2));
-		   } else $("#pname" +(i+1)).val(pn);
+		   switch(pn.charCodeAt(1)) {
+		      case 0x20:
+		         $("#picon" + (i+1)).html("<i class='fa'>" + pn.charAt(0) +"</i>");
+			 $("#pname" + (i+1)).val(pn.slice(2));
+			 break;
+		      case 0xfe0e:
+			 $("#picon" + (i+1)).text(pn.slice(0,2));
+			 $("#pname" + (i+1)).val(pn.slice(3));
+			 break;
+		      default:
+		         $("#pname" +(i+1)).val(pn);
+		   }
 		   delist(pn);
 		   var pi = $(v).children("image").text();
 		   $("#pimage" + (i+1)).val(pi);
