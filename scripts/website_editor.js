@@ -547,13 +547,12 @@ function openFullscreen(th) {
 		      if (p=="form") $("#ctform").prop("checked",true);
 		   var pn = $(v).children("name").text();
 		   $("#pn" + (i+1)).val(pn);
-		   alert(pn.charCodeAt(1));
 		   switch(pn.charCodeAt(1)) {
 		      case 0x20:
 		         $("#picon" + (i+1)).html("<i class='fa'>" + pn.charAt(0) +"</i>");
 			 $("#pname" + (i+1)).val(pn.slice(2));
 			 break;
-		      case 0xfe0e:
+		      case 0xdf40:
 			 $("#picon" + (i+1)).text(pn.slice(0,2));
 			 $("#pname" + (i+1)).val(pn.slice(3));
 			 break;
