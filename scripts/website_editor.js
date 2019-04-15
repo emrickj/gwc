@@ -283,6 +283,7 @@ function resizeHtmlEditor() {
 	  document.msFullscreenElement) /* IE/Edge syntax */
 	) {
 	    $(".panel").show();
+	    $(".btn-lg").show();
 	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea').css('width', '100%');
 	    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -486,6 +487,7 @@ function esc_code(cd) {
 function openFullscreen(th) {
   var elem = document.getElementById("fsarea");
   $(".panel").hide();
+  $(".btn-lg").hide();
   $(th).parent().parent().show();
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
@@ -545,9 +547,10 @@ function openFullscreen(th) {
 		      if (p=="form") $("#ctform").prop("checked",true);
 		   var pn = $(v).children("name").text();
 		   $("#pn" + (i+1)).val(pn);
-		   if (pn.charAt(1)==" ") {
-		      $("#picon" + (i+1)).html("<i class='fa'>" + pn.charAt(0) +"</i>");
-		      $("#pname" +(i+1)).val(pn.slice(2));
+		   if (pn.charCodeAt(0) > 127) {
+		      pnsp = pn.indexOf(" ");
+		      $("#picon" + (i+1)).html("<i class='fa'>" + pn.slice(0,pnsp) + "</i>");
+		      $("#pname" + (i+1)).val(pn.slice(pnsp + 1));
 		   } else $("#pname" +(i+1)).val(pn);
 		   delist(pn);
 		   var pi = $(v).children("image").text();
