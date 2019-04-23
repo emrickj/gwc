@@ -244,6 +244,9 @@
               $("#wsfile").val('');
               $("#openModal").modal();
            });
+	   $("#thpreview").click(function(){
+	      alert($("theme").val());
+	   });
            $("#opncss").click(function(){
               $("#cssfile").val('');
               $("#opencssModal").modal();
