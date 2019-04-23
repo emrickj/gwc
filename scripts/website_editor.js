@@ -245,7 +245,8 @@
               $("#openModal").modal();
            });
 	   $("#thpreview").click(function(){
-	      alert($("theme").val());
+	      var e = document.getElementById("theme");
+	      alert(e.options[e.selectedIndex].value);
 	   });
            $("#opncss").click(function(){
               $("#cssfile").val('');
