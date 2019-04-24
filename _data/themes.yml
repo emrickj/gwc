@@ -185,187 +185,187 @@
   - name: 991
     desc: Horizontal Menu
     cssf: 99Lime
-    pwfn:
+    pwfn: 500
   - name: 992
     desc: Vertical Menu
     cssf: 99Lime
-    pwfn:
+    pwfn: 500
   - name: f1
     desc: Top Bar Navigation
     cssf: Foundation
-    pwfn:
+    pwfn: 500
   - name: gr1
     desc: Horizontal Menu
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1ye
     desc: Horizontal Menu, yellow
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1or
     desc: Horizontal Menu, orange
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1rd
     desc: Horizontal Menu, red
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1pk
     desc: Horizontal Menu, pink
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1pu
     desc: Horizontal Menu, purple
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1as
     desc: Horizontal Menu, asphalt
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1blu
     desc: Horizontal Menu, blue
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1tu
     desc: Horizontal Menu, turquoise
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1grn
     desc: Horizontal Menu, green
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gr1ch
     desc: Horizontal Menu, charcoal
     cssf: GroundworkCSS
-    pwfn:
+    pwfn: 500
   - name: gu1
     desc: Navigation Bar
     cssf: Gumby
-    pwfn:
+    pwfn: 500
   - name: gu2
     desc: Navigation Bar 2
     cssf: Gumby
-    pwfn:
+    pwfn: 500
   - name: i1wh
     desc: Horizontal Menu, white
     cssf: Ink
-    pwfn:
+    pwfn: 500
   - name: i1gr
     desc: Horizontal Menu, grey
     cssf: Ink
-    pwfn:
+    pwfn: 500
   - name: i1
     desc: Horizontal Menu, black
     cssf: Ink
-    pwfn:
+    pwfn: 500
   - name: i1blu
     desc: Horizontal Menu, blue
     cssf: Ink
-    pwfn:
+    pwfn: 500
   - name: i1grn
     desc: Horizontal Menu, green
     cssf: Ink
-    pwfn:
+    pwfn: 500
   - name: i1or
     desc: Horizontal Menu, orange
     cssf: Ink
-    pwfn:
+    pwfn: 500
   - name: i1rd
     desc: Horizontal Menu, red
     cssf: Ink
-    pwfn:
+    pwfn: 500
   - name: ma1
     desc: Theme
     cssf: Material Design
-    pwfn:
+    pwfn: 500
   - name: ma1rd
     desc: Theme, red
     cssf: Material Design
-    pwfn:
+    pwfn: 500
   - name: ma1pk
     desc: Theme, pink
     cssf: Material Design
-    pwfn:
+    pwfn: 500
   - name: ma1te
     desc: Theme, teal
     cssf: Material Design
-    pwfn:
+    pwfn: 500
   - name: ma1grn
     desc: Theme, green
     cssf: Material Design
-    pwfn:
+    pwfn: 500
   - name: ma1or
     desc: Theme, orange
     cssf: Material Design
-    pwfn:
+    pwfn: 500
   - name: ma1do
     desc: Theme, deep orange
     cssf: Material Design
-    pwfn:
+    pwfn: 500
   - name: ma1gr
     desc: Theme, grey
     cssf: Material Design
-    pwfn:
+    pwfn: 500
   - name: ma2
     desc: Scrollspy
     cssf: Material Design
-    pwfn:
+    pwfn: 500
   - name: m2da
     desc: Appbar, fixed, darcula
     cssf: Metro UI CSS
-    pwfn:
+    pwfn: 500
   - name: m2pk
     desc: Appbar, fixed, pink
     cssf: Metro UI CSS
-    pwfn:
+    pwfn: 500
   - name: m2
     desc: Appbar, fixed, navy
     cssf: Metro UI CSS
-    pwfn:
+    pwfn: 500
   - name: m2rd
     desc: Appbar, fixed, red
     cssf: Metro UI CSS
-    pwfn:
+    pwfn: 500
   - name: m2grn
     desc: Appbar, fixed, green
     cssf: Metro UI CSS
-    pwfn:
+    pwfn: 500
   - name: m2or
     desc: Appbar, fixed, orange
     cssf: Metro UI CSS
-    pwfn:
+    pwfn: 500
   - name: m1f
     desc: F-MENU (flex menu)
     cssf: Metro UI CSS
-    pwfn:
+    pwfn: 500
   - name: m1
     desc: H-MENU
     cssf: Metro UI CSS
-    pwfn:
+    pwfn: 500
   - name: s3
     desc: Theme
     cssf: Skeleton
-    pwfn:
+    pwfn: 500
   - name: s1
     desc: Navigation Bar
     cssf: Skeleton
-    pwfn:
+    pwfn: 500
   - name: s2
     desc: Vertical Navigation Bar
     cssf: Skeleton
-    pwfn:
+    pwfn: 500
   - name: t1
     desc: White Back Theme
     cssf: Tuktuk
-    pwfn:
+    pwfn: 500
   - name: t1d
     desc: Dark Back Theme
     cssf: Tuktuk
-    pwfn:
+    pwfn: 500
   - name: t1l
     desc: Light Back Theme
     cssf: Tuktuk
-    pwfn:
+    pwfn: 500
   - name: w1
     desc: Sidebar
     cssf: W3.CSS
@@ -497,4 +497,4 @@
   - name: y1
     desc: Horizontal Navigation
     cssf: YAML
-    pwfn:
+    pwfn: 500
