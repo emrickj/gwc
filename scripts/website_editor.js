@@ -248,8 +248,8 @@
 	      var e = document.getElementById("theme");
 	      var thval = e.options[e.selectedIndex].value;
 	      var pos = thval.indexOf(":");
-	      if (thval.slice(pos + 1) != "") document.getElementById("thpreview").disabled = false;
-		   else document.getElementById("thpreview").disabled = true;
+	      if (thval.slice(pos + 1) != "") $("#thpreview").removeClass("disabled");
+		   else $("#thpreview").addClass("disabled");
 	   });
 	   $("#thpreview").click(function(){
 	      var e = document.getElementById("theme");
