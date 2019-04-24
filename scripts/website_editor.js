@@ -244,6 +244,19 @@
               $("#wsfile").val('');
               $("#openModal").modal();
            });
+	   $("#theme").change(function(){
+	      var e = document.getElementById("theme");
+	      var thval = e.options[e.selectedIndex].value;
+	      var pos = thval.indexOf(":");
+	      if (thval.slice(pos + 1) != "") $("#thpreview").removeClass("disabled");
+		   else $("#thpreview").addClass("disabled");
+	   });
+	   $("#thpreview").click(function(){
+	      var e = document.getElementById("theme");
+	      var thval = e.options[e.selectedIndex].value;
+	      var pos = thval.indexOf(":");
+	      window.open("https://www.gem-editor.com/gwc/theme" + thval.slice(0,pos) + ".php?u=" + thval.slice(pos+1), "_blank");
+	   });
            $("#opncss").click(function(){
               $("#cssfile").val('');
               $("#opencssModal").modal();
@@ -371,6 +384,7 @@ function reset_form() {
       $(this).htmlarea("updateHtmlArea");
    });
    $("#ctform").prop("checked",false);
+   $("#thpreview").addClass("disabled");
    $("#css").text("");
    css_update_ta();
    //if(screen.width <= 750) document.getElementById("theme2").selected = true;
