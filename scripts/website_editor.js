@@ -384,6 +384,7 @@ function reset_form() {
       $(this).htmlarea("updateHtmlArea");
    });
    $("#ctform").prop("checked",false);
+   $("#thpreview").addClass("disabled");
    $("#css").text("");
    css_update_ta();
    //if(screen.width <= 750) document.getElementById("theme2").selected = true;
