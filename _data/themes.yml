@@ -241,11 +241,11 @@
   - name: gu1
     desc: Navigation Bar
     cssf: Gumby
-    pwfn: 500
+    pwfn:
   - name: gu2
     desc: Navigation Bar 2
     cssf: Gumby
-    pwfn: 500
+    pwfn:
   - name: i1wh
     desc: Horizontal Menu, white
     cssf: Ink
@@ -277,71 +277,71 @@
   - name: ma1
     desc: Theme
     cssf: Material Design
-    pwfn: 500
+    pwfn:
   - name: ma1rd
     desc: Theme, red
     cssf: Material Design
-    pwfn: 500
+    pwfn:
   - name: ma1pk
     desc: Theme, pink
     cssf: Material Design
-    pwfn: 500
+    pwfn:
   - name: ma1te
     desc: Theme, teal
     cssf: Material Design
-    pwfn: 500
+    pwfn:
   - name: ma1grn
     desc: Theme, green
     cssf: Material Design
-    pwfn: 500
+    pwfn:
   - name: ma1or
     desc: Theme, orange
     cssf: Material Design
-    pwfn: 500
+    pwfn:
   - name: ma1do
     desc: Theme, deep orange
     cssf: Material Design
-    pwfn: 500
+    pwfn:
   - name: ma1gr
     desc: Theme, grey
     cssf: Material Design
-    pwfn: 500
+    pwfn:
   - name: ma2
     desc: Scrollspy
     cssf: Material Design
-    pwfn: 500
+    pwfn:
   - name: m2da
     desc: Appbar, fixed, darcula
     cssf: Metro UI CSS
-    pwfn: 500
+    pwfn:
   - name: m2pk
     desc: Appbar, fixed, pink
     cssf: Metro UI CSS
-    pwfn: 500
+    pwfn:
   - name: m2
     desc: Appbar, fixed, navy
     cssf: Metro UI CSS
-    pwfn: 500
+    pwfn:
   - name: m2rd
     desc: Appbar, fixed, red
     cssf: Metro UI CSS
-    pwfn: 500
+    pwfn:
   - name: m2grn
     desc: Appbar, fixed, green
     cssf: Metro UI CSS
-    pwfn: 500
+    pwfn:
   - name: m2or
     desc: Appbar, fixed, orange
     cssf: Metro UI CSS
-    pwfn: 500
+    pwfn:
   - name: m1f
     desc: F-MENU (flex menu)
     cssf: Metro UI CSS
-    pwfn: 500
+    pwfn:
   - name: m1
     desc: H-MENU
     cssf: Metro UI CSS
-    pwfn: 500
+    pwfn:
   - name: s3
     desc: Theme
     cssf: Skeleton
@@ -497,4 +497,4 @@
   - name: y1
     desc: Horizontal Navigation
     cssf: YAML
-    pwfn: 500
+    pwfn:
