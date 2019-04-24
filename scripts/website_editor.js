@@ -253,7 +253,9 @@
 	   });
 	   $("#thpreview").click(function(){
 	      var e = document.getElementById("theme");
-	      alert(e.options[e.selectedIndex].value);
+	      var thval = e.options[e.selectedIndex].value;
+	      var pos = thval.indexOf(":");
+	      window.open("https://www.gem-editor.com/gwc/theme" + thval.slice(0,pos) + ".php?u=" + thval.slice(pos+1), "_blank");
 	   });
            $("#opncss").click(function(){
               $("#cssfile").val('');
