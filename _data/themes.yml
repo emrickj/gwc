@@ -241,11 +241,11 @@
   - name: gu1
     desc: Navigation Bar
     cssf: Gumby
-    pwfn:
+    pwfn: 521
   - name: gu2
     desc: Navigation Bar 2
     cssf: Gumby
-    pwfn:
+    pwfn: 521
   - name: i1wh
     desc: Horizontal Menu, white
     cssf: Ink
