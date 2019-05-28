@@ -277,39 +277,39 @@
   - name: ma1
     desc: Theme
     cssf: Material Design
-    pwfn:
+    pwfn: 521
   - name: ma1rd
     desc: Theme, red
     cssf: Material Design
-    pwfn:
+    pwfn: 521
   - name: ma1pk
     desc: Theme, pink
     cssf: Material Design
-    pwfn:
+    pwfn: 521
   - name: ma1te
     desc: Theme, teal
     cssf: Material Design
-    pwfn:
+    pwfn: 521
   - name: ma1grn
     desc: Theme, green
     cssf: Material Design
-    pwfn:
+    pwfn: 521
   - name: ma1or
     desc: Theme, orange
     cssf: Material Design
-    pwfn:
+    pwfn: 521
   - name: ma1do
     desc: Theme, deep orange
     cssf: Material Design
-    pwfn:
+    pwfn: 521
   - name: ma1gr
     desc: Theme, grey
     cssf: Material Design
-    pwfn:
+    pwfn: 521
   - name: ma2
     desc: Scrollspy
     cssf: Material Design
-    pwfn:
+    pwfn: 521
   - name: m2da
     desc: Appbar, fixed, darcula
     cssf: Metro UI CSS
