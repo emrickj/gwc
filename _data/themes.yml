@@ -185,11 +185,11 @@
   - name: 991
     desc: Horizontal Menu
     cssf: 99Lime
-    pwfn: 500
+    pwfn: 501
   - name: 992
     desc: Vertical Menu
     cssf: 99Lime
-    pwfn: 500
+    pwfn: 501
   - name: f1
     desc: Top Bar Navigation
     cssf: Foundation
