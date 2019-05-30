@@ -193,7 +193,7 @@
   - name: f1
     desc: Top Bar Navigation
     cssf: Foundation
-    pwfn: 500
+    pwfn: 531
   - name: gr1
     desc: Horizontal Menu
     cssf: GroundworkCSS
