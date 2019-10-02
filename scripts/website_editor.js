@@ -549,7 +549,7 @@ function openFullscreen(th) {
                 parser = new DOMParser();
                 xmlDoc = parser.parseFromString(contents,"text/xml");
 		var th = $("website",xmlDoc).attr("theme");
-                if (th) $("#theme").val(th);
+                if (th) $("#theme"+th).attr("selected","true");
 		var wt = $("title",xmlDoc).text();
                 $("#title").val(wt);
 		var st = $("style",xmlDoc).text();
