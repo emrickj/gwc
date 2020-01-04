@@ -295,6 +295,7 @@ function resizeHtmlEditor() {
 	  document.mozFullScreenElement ||/* Firefox syntax */
 	  document.msFullscreenElement) /* IE/Edge syntax */
 	) {
+	    $(":text:visible").focus();
 	    $(".panel").show();
 	    $(".btn-lg").show();
 	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
