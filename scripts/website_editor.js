@@ -2,6 +2,8 @@
         // You can do this to perform a global override of any of the "default" options
         // jHtmlArea.fn.defaultOptions.css = "jHtmlArea.Editor.css";
 
+var scrollTop = 0;
+
         $(function() {
             var esc = false;
         /*
@@ -295,8 +297,10 @@ function resizeHtmlEditor() {
 	  document.mozFullScreenElement ||/* Firefox syntax */
 	  document.msFullscreenElement) /* IE/Edge syntax */
 	) {
+	    // var ti = $("div.jHtmlArea iframe:visible,div.jHtmlArea textarea:visible");
 	    $(".panel").show();
 	    $(".btn-lg").show();
+	    // ti.focus();
 	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea').css('width', '100%');
 	    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -311,15 +315,17 @@ function resizeHtmlEditor() {
 	    // $('div.jHtmlArea iframe').css('width', '100%');
 	    $('div.jHtmlArea iframe').width($('div.jHtmlArea').width());
 	    $('div.jHtmlArea iframe').height($('div.jHtmlArea').height() - $('div.ToolBar').height() - 6);
+	    document.documentElement.scrollTop = document.body.scrollTop = scrollTop;
+	    scrollTop = 0;
     } else {
 	    $('div.jHtmlArea:visible').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea:visible').css('width', '100%');
-	    $('div.jHtmlArea textarea').css('height', window.innerHeight - 221);
+	    $('div.jHtmlArea textarea').css('height', window.innerHeight - 251);
 	    $('.expand-icon:visible').html("");
 	    $('div.jHtmlArea:visible').height($('div.jHtmlArea textarea').height() + 44);
 	    // $('div.jHtmlArea iframe').css('width', '100%');
-	    $('div.jHtmlArea iframe:visible').width($('div.jHtmlArea:visible').width());
-	    $('div.jHtmlArea iframe:visible').height($('div.jHtmlArea:visible').height() - $('div.ToolBar:visible').height() - 6);
+	    $('div.jHtmlArea iframe').width($('div.jHtmlArea:visible').width());
+	    $('div.jHtmlArea iframe').height($('div.jHtmlArea:visible').height() - $('div.ToolBar:visible').height() - 6);
     }
 }
 
@@ -500,6 +506,7 @@ function esc_code(cd) {
 
 function openFullscreen(th) {
   var elem = document.getElementById("fsarea");
+  scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   $(".panel").hide();
   $(".btn-lg").hide();
   $(th).parent().parent().show();
