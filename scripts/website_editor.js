@@ -314,7 +314,7 @@ function resizeHtmlEditor() {
     } else {
 	    $('div.jHtmlArea:visible').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea:visible').css('width', '100%');
-	    $('div.jHtmlArea textarea').css('height', window.innerHeight - 221);
+	    $('div.jHtmlArea textarea').css('height', window.innerHeight - 240);
 	    $('.expand-icon:visible').html("");
 	    $('div.jHtmlArea:visible').height($('div.jHtmlArea textarea').height() + 44);
 	    // $('div.jHtmlArea iframe').css('width', '100%');
