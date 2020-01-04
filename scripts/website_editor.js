@@ -295,7 +295,7 @@ function resizeHtmlEditor() {
 	  document.mozFullScreenElement ||/* Firefox syntax */
 	  document.msFullscreenElement) /* IE/Edge syntax */
 	) {
-	    var ti = $("div.jHtmlArea:visible");
+	    var ti = $("div.jHtmlArea iframe,div.jHtmlArea textarea:visible");
 	    $(".panel").show();
 	    $(".btn-lg").show();
 	    ti.focus();
