@@ -316,6 +316,7 @@ function resizeHtmlEditor() {
 	    $('div.jHtmlArea iframe').width($('div.jHtmlArea').width());
 	    $('div.jHtmlArea iframe').height($('div.jHtmlArea').height() - $('div.ToolBar').height() - 6);
 	    document.documentElement.scrollTop = document.body.scrollTop = scrollTop;
+	    scrollTop = 0;
     } else {
 	    $('div.jHtmlArea:visible').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea:visible').css('width', '100%');
