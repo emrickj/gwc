@@ -295,9 +295,10 @@ function resizeHtmlEditor() {
 	  document.mozFullScreenElement ||/* Firefox syntax */
 	  document.msFullscreenElement) /* IE/Edge syntax */
 	) {
-	    $(":text:visible").focus();
+	    var ti = $(":text:visible");
 	    $(".panel").show();
 	    $(".btn-lg").show();
+	    ti.focus();
 	    $('div.jHtmlArea').find('div.ToolBar').css('width', '100%');
 	    $('div.jHtmlArea').css('width', '100%');
 	    //if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
