@@ -318,8 +318,8 @@ function resizeHtmlEditor() {
 	    $('.expand-icon:visible').html("");
 	    $('div.jHtmlArea:visible').height($('div.jHtmlArea textarea').height() + 44);
 	    // $('div.jHtmlArea iframe').css('width', '100%');
-	    $('div.jHtmlArea iframe:visible').width($('div.jHtmlArea:visible').width());
-	    $('div.jHtmlArea iframe:visible').height($('div.jHtmlArea:visible').height() - $('div.ToolBar:visible').height() - 6);
+	    $('div.jHtmlArea iframe').width($('div.jHtmlArea:visible').width());
+	    $('div.jHtmlArea iframe').height($('div.jHtmlArea:visible').height() - $('div.ToolBar:visible').height() - 6);
     }
 }
 
