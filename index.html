@@ -110,12 +110,12 @@ page_forms:
 	    <a class="navbar-brand" href="https://www.gem-editor.com" target="_blank"><i class="fa">&#xf219;</i></a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="javascript:document.getElementById('pname1').focus()">Page 1</a></li>
-      <li><a href="javascript:document.getElementById('pname2').focus()">Page 2</a></li>
-      <li><a href="javascript:document.getElementById('pname3').focus()">Page 3</a></li>
-      <li><a href="javascript:document.getElementById('pname4').focus()">Page 4</a></li>
-      <li><a href="javascript:document.getElementById('pname5').focus()">Page 5</a></li>
-      <li><a href="javascript:document.getElementById('pname6').focus()">Page 6</a></li>
+      <li><a href="javascript:document.getElementById('page1').scrollIntoView(false)">Page 1</a></li>
+      <li><a href="javascript:document.getElementById('page2').scrollIntoView(false)">Page 2</a></li>
+      <li><a href="javascript:document.getElementById('page3').scrollIntoView(false)">Page 3</a></li>
+      <li><a href="javascript:document.getElementById('page4').scrollIntoView(false)">Page 4</a></li>
+      <li><a href="javascript:document.getElementById('page5').scrollIntoView(false)">Page 5</a></li>
+      <li><a href="javascript:document.getElementById('page6').scrollIntoView(false)">Page 6</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Options
         <span class="caret"></span></a>
@@ -146,7 +146,7 @@ page_forms:
 	  {% assign my_counter = 0 %}
 	  {% for item in page.page_forms %}
 		 {% assign my_counter = my_counter | plus: 1 %}
-         <div class="panel panel-{{ item.color }}">
+         <div class="panel panel-{{ item.color }}" id="page{{ my_counter }}">
             <div class="panel-heading" id="ptext{{ my_counter }}">
 		  <span><i class="fa fa-2x">{{ item.label }}</i></span>
 		  <span class="expand-icon" onclick="openFullscreen(this);" style="float: right;cursor: pointer;"></span>
